@@ -5,40 +5,50 @@
   <title>Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
 
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
 
-  <!-- SOBRE -->
-  <section id="cover">
-    <img src="img/sobre.png" id="envelope" alt="Sobre">
-    <div class="tap">TOCA PARA ABRIR</div>
-  </section>
+<!-- SOBRE -->
+<div id="cover">
+  <img src="img/sobre.png" id="envelope" alt="Sobre">
+  <p class="tap">TOCA PARA ABRIR</p>
+</div>
 
-  <!-- HISTORIA -->
-  <section id="story">
+<!-- HISTORIA (SCROLL) -->
+<div id="story">
 
-    <div class="page">
-      <div class="paper">
-        <h1>Oscar & Yosselyn</h1>
-        <p>
-          Una historia que comenzó<br>
-          entre árboles y promesas.
-        </p>
-      </div>
+  <!-- HOJA 1 -->
+  <section class="page">
+    <div class="paper">
+      <h1>Oscar & Yosselyn</h1>
+      <p>Una historia que comenzó entre árboles y promesas.</p>
     </div>
-
   </section>
 
-  <script src="js/script.js"></script>
+  <!-- HOJA 2 -->
+  <section class="page">
+    <div class="paper">
+      <h2>Ubicación</h2>
+      <p>Templo · Ciudad · Fecha</p>
+    </div>
+  </section>
 
-  <audio id="music" loop>
-  <source src="audio/musica.mp3" type="audio/mpeg">
-  </audio>
+  <!-- HOJA 3 -->
+  <section class="page">
+    <div class="paper">
+      <h2>Galería</h2>
+      <p>Momentos que nos trajeron hasta aquí.</p>
+    </div>
+  </section>
 
+</div>
+
+<audio id="music" src="audio/music.mp3" preload="auto"></audio>
+
+<script src="js/script.js"></script>
 </body>
 </html>
-
-
