@@ -32,15 +32,21 @@
     }
 
     .envelope {
-      width: 260px;
-      height: 180px;
-      background: #F5F2ED !important;
-      position: relative;
-      margin: 0 auto 30px;
-      border-radius: 4px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-      transition: transform 1s ease, opacity 1s ease;
-    }
+  width: 260px;
+  height: 180px;
+  position: relative;
+  margin: 0 auto 30px;
+  border-radius: 4px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transition: transform 1s ease, opacity 1s ease;
+
+  background-image: linear-gradient(
+    180deg,
+    #F8F6F1,
+    #EFE9DF
+  );
+}
+
 
     .envelope::before {
       content: "";
