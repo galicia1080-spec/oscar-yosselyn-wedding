@@ -67,7 +67,7 @@ body {
 
 /* --- EL PERGAMINO --- */
 .paper {
-  background-image: url("../img/pergamino.png");
+  background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%; /* Estira el pergamino para cubrir el div */
