@@ -6,10 +6,29 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  /* Asegúrate que esta imagen exista en tu carpeta img */
-  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat; 
-  color: #4b3b26; /* Café oscuro */
-  overflow-x: hidden; /* Evita scroll horizontal */
+  color: #4b3b26;
+  /* Quitamos el background de aquí para evitar el salto */
+  background-color: #2e261d; 
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Creamos un elemento virtual que actuará como fondo fijo */
+body::before {
+  content: "";
+  position: fixed; /* Esto lo "clava" a la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Aquí ponemos tu imagen */
+  background: url("../img/fondo-bosque.jpg") center/cover no-repeat;
+  
+  z-index: -1; /* Lo mandamos al fondo de todo */
+  
+  /* Este truco ayuda a que el navegador sepa que esto no cambiará */
+  will-change: transform; 
 }
 
 /* --- SOBRE (PANTALLA DE INICIO) --- */
