@@ -112,15 +112,40 @@ body {
 }
 
 /* --- CLASE MÁGICA PARA LAS FOTOS JPG (Copia esto al final del CSS) --- */
+/* --- CORRECCIÓN DE IMÁGENES DRESSCODE --- */
+
+.dress-img {
+  display: block;
+  /* IMPORTANTE: width auto y max-width en porcentaje relativo al padre */
+  width: auto; 
+  max-width: 100%; 
+  height: auto;
+  
+  /* Reducimos el tamaño visual para que no toque las hojas */
+  max-height: 200px; /* Ajusta esto si las ves muy chicas */
+  
+  margin: 0 auto 15px auto;
+  border-radius: 8px; /* Bordes redondeados para suavizar el corte */
+}
+
+.colors-img {
+  display: block;
+  width: auto;
+  max-width: 90%; /* Un poquito menos ancho que el contenedor */
+  height: auto;
+  margin: 0 auto 10px auto;
+  border-radius: 8px;
+}
+
+/* --- AJUSTE DEL MODO DE FUSIÓN --- */
 .blend-img {
-  /* Esto hace que el fondo blanco del JPG se vuelva transparente */
+  /* 'multiply' oscurece. Si tus imágenes tienen fondo crema y el papel es crema,
+     a veces 'darken' funciona mejor para eliminar el parche claro.
+     Prueba cambiar 'multiply' por 'darken' si sigue viéndose el cuadro. */
   mix-blend-mode: multiply; 
   
-  /* Esto ayuda a que los colores no se vean lavados */
-  filter: contrast(1.05); 
-  
-  display: block;
-  margin: 0 auto;
+  /* Un poco de contraste ayuda a que el fondo crema se vuelva más blanco (y desaparezca) */
+  filter: contrast(1.1) brightness(1.05); 
 }
 
 /* TIPOGRAFÍA */
