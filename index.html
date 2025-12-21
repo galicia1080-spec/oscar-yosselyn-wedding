@@ -15,10 +15,12 @@
   <div class="fondo-bosque-fijo"></div>
   <!-- PANTALLA DE INICIO (SOBRE) -->
   <div id="cover">
-    <!-- Asegúrate que sobre.png esté en la carpeta img -->
-    <img src="img/sobre.png" id="envelope" alt="Abrir Invitación">
-    <p class="tap">TOCA EL SOBRE</p>
-  </div>
+  <!-- Frase romántica antes del sobre -->
+  <h2 class="intro-phrase">"Juntos es nuestro<br>lugar favorito"</h2>
+  
+  <img src="img/sobre.png" id="envelope" alt="Abrir Invitación">
+  <p class="tap">TOCA EL SOBRE</p>
+</div>
 
   <!-- HISTORIA (SCROLL VERTICAL) -->
   <div id="story">
@@ -36,17 +38,44 @@
     </section>
 
     <!-- HOJA 2: DETALLES -->
-    <section class="page">
-      <div class="paper">
-        <h2>Nuestra Boda</h2>
-        <p><strong>¿Cuándo?</strong><br>Sábado 24 de Octubre<br>4:00 PM</p>
-        <p><strong>¿Dónde?</strong><br>Finca Los Robles<br>Carretera al Volcán</p>
-        <!-- Ejemplo de botón si quieres poner link a Google Maps -->
-        <p style="margin-top:10px;">
-            <a href="#" style="color:#8c6b38; font-weight:bold; text-decoration:none; border-bottom:1px solid #8c6b38;">Ver Ubicación</a>
-        </p>
+    <!-- HOJA 2: CUÁNDO Y DÓNDE -->
+<section class="page">
+  <div class="paper">
+    <h2>Nuestra Boda</h2>
+    
+    <!-- CALENDARIO VISUAL -->
+    <div class="calendar-wrapper">
+      <div class="month">OCTUBRE</div>
+      <div class="calendar-grid">
+        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+        <!-- Días de relleno -->
+        <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+        <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="heart-date">24</span><span>25</span>
+        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
       </div>
-    </section>
+    </div>
+
+    <!-- CUENTA REGRESIVA -->
+    <div id="countdown">
+      <div class="time-box"><span id="days">00</span><small>Días</small></div>
+      <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
+      <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
+      <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
+    </div>
+
+    <div class="details-block">
+      <p><strong>Ceremonia & Recepción</strong><br>4:00 PM<br>Finca Los Robles</p>
+      
+      <!-- BOTÓN DE UBICACIÓN -->
+      <a href="https://maps.google.com" target="_blank" class="btn-location">
+        Ver Ubicación en Mapa
+      </a>
+    </div>
+
+  </div>
+</section>
 
     <!-- HOJA 3: FINAL -->
     <section class="page">
