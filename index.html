@@ -2,53 +2,65 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Oscar & Yosselyn</title>
+  <title>Boda Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-
+  
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- SOBRE -->
-<div id="cover">
-  <img src="img/sobre.png" id="envelope" alt="Sobre">
-  <p class="tap">TOCA PARA ABRIR</p>
-</div>
+  <!-- PANTALLA DE INICIO (SOBRE) -->
+  <div id="cover">
+    <!-- Asegúrate que sobre.png esté en la carpeta img -->
+    <img src="img/sobre.png" id="envelope" alt="Abrir Invitación">
+    <p class="tap">TOCA EL SOBRE</p>
+  </div>
 
-<!-- HISTORIA (SCROLL) -->
-<div id="story">
+  <!-- HISTORIA (SCROLL VERTICAL) -->
+  <div id="story">
 
-  <!-- HOJA 1 -->
-  <section class="page">
-    <div class="paper">
-      <h1>Oscar & Yosselyn</h1>
-      <p>Una historia que comenzó entre árboles y promesas.</p>
-    </div>
-  </section>
+    <!-- HOJA 1: BIENVENIDA -->
+    <section class="page">
+      <div class="paper">
+        <h1>Oscar & Yosselyn</h1>
+        <p>
+          "El amor es plantar un bosque <br>donde antes solo había tierra."
+        </p>
+        <p>¡Nos Casamos!</p>
+        <small>Desliza hacia abajo ↓</small>
+      </div>
+    </section>
 
-  <!-- HOJA 2 -->
-  <section class="page">
-    <div class="paper">
-      <h2>Ubicación</h2>
-      <p>Templo · Ciudad · Fecha</p>
-    </div>
-  </section>
+    <!-- HOJA 2: DETALLES -->
+    <section class="page">
+      <div class="paper">
+        <h2>Nuestra Boda</h2>
+        <p><strong>¿Cuándo?</strong><br>Sábado 24 de Octubre<br>4:00 PM</p>
+        <p><strong>¿Dónde?</strong><br>Finca Los Robles<br>Carretera al Volcán</p>
+        <!-- Ejemplo de botón si quieres poner link a Google Maps -->
+        <p style="margin-top:10px;">
+            <a href="#" style="color:#8c6b38; font-weight:bold; text-decoration:none; border-bottom:1px solid #8c6b38;">Ver Ubicación</a>
+        </p>
+      </div>
+    </section>
 
-  <!-- HOJA 3 -->
-  <section class="page">
-    <div class="paper">
-      <h2>Galería</h2>
-      <p>Momentos que nos trajeron hasta aquí.</p>
-    </div>
-  </section>
+    <!-- HOJA 3: FINAL -->
+    <section class="page">
+      <div class="paper">
+        <h2>Te Esperamos</h2>
+        <p>Tu presencia es nuestro<br>mejor regalo.</p>
+        <p>Código de vestimenta:<br>Formal / Bosque</p>
+      </div>
+    </section>
 
-</div>
+  </div>
 
-<audio id="music" src="audio/music.mp3" preload="auto"></audio>
+  <!-- AUDIO -->
+  <audio id="music" src="audio/music.mp3" preload="auto" loop></audio>
 
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
