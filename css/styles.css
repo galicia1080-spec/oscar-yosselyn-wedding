@@ -84,11 +84,15 @@ body {
 }
 
 .page {
-  min-height: 100vh;
+  /* Antes tenías min-height: 100vh; ESO ERA EL CULPABLE */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  
+  /* Esto controla qué tan pegados están los pergaminos */
+  padding: 20px 0; 
+  /* Si quieres que estén aún más juntos, reduce este 20px o usa margin negativo */
 }
 
 /* --- EL PERGAMINO --- */
