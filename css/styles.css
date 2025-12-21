@@ -280,3 +280,56 @@ p {
 .btn-location:hover {
   background-color: #6b512a;
 }
+
+/* --- FORMULARIO RSVP --- */
+.rsvp-form {
+  width: 100%;
+  max-width: 300px; /* Ancho controlado */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group input, 
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c9b37e;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  color: #4b3b26;
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #5c6b48;
+  background-color: #fff;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  accent-color: #8c6b38; /* Color del puntito seleccionado */
+}
+
+button[type="submit"] {
+  background-color: #8c6b38;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #6b512a;
+}
