@@ -1,144 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light only">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      height: 100vh;
-      background: linear-gradient(180deg, #1f2f26, #2f4f3e);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Montserrat', sans-serif;
-      color: #C9B37E;
-    }
-
-    .envelope-container {
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .envelope {
-      width: 260px;
-      height: 180px;
-      position: relative;
-      margin: 0 auto 30px;
-      border-radius: 4px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-      transition: transform 1s ease, opacity 1s ease;
-      background-image: linear-gradient(
-        180deg,
-        #F8F6F1,
-        #EFE9DF
-        );
-      }  
-
-
-    .envelope {
-  width: 260px;
-  height: auto;
-  display: block;
-  margin: 0 auto 30px;
-  border-radius: 4px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 42px;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-      color: #D6C28F;
-    }
-
-    p {
-      font-size: 15px;
-      opacity: 0.85;
-      max-width: 280px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: #E6D9B8;
-    }
-
-    .tap {
-      margin-top: 15px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      opacity: 0.7;
-    }
-
-    .envelope.open {
-      transform: translateY(-40px) scale(0.95);
-      opacity: 0;
-    }
-
-    .envelope-container.fade-out {
-      animation: fadeOut 1.2s forwards;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-  <!-- 🎵 Música -->
-  <audio id="bg-music" preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<!-- SOBRE -->
+<div id="cover">
+  <img src="img/sobre.png" id="envelope" alt="Sobre">
+  <p class="tap">TOCA PARA ABRIR</p>
+</div>
 
-  <!-- ✉️ Sobre -->
-  <div class="envelope-container" id="envelope">
-    <img src="sobre.png" class="envelope" alt="Sobre de invitación">
+<!-- HISTORIA (SCROLL) -->
+<div id="story">
 
-
-    <h1>Oscar & Yosselyn</h1>
-
-    <p>
-      Una historia que comenzó entre árboles y promesas.
-    </p>
-
-    <div class="tap">
-      TOCA PARA ABRIR
+  <!-- HOJA 1 -->
+  <section class="page">
+    <div class="paper">
+      <h1>Oscar & Yosselyn</h1>
+      <p>Una historia que comenzó entre árboles y promesas.</p>
     </div>
-  </div>
+  </section>
 
-  <!-- ✨ JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const envelope = document.getElementById('envelope');
-      const music = document.getElementById('bg-music');
+  <!-- HOJA 2 -->
+  <section class="page">
+    <div class="paper">
+      <h2>Ubicación</h2>
+      <p>Templo · Ciudad · Fecha</p>
+    </div>
+  </section>
 
-      envelope.addEventListener('click', () => {
-        envelope.classList.add('fade-out');
-        envelope.querySelector('.envelope').classList.add('open');
+  <!-- HOJA 3 -->
+  <section class="page">
+    <div class="paper">
+      <h2>Galería</h2>
+      <p>Momentos que nos trajeron hasta aquí.</p>
+    </div>
+  </section>
 
-        music.volume = 0.4;
-        music.play().catch(() => {});
-      });
-    });
-  </script>
+</div>
 
+<audio id="music" src="audio/music.mp3" preload="auto"></audio>
+
+<script src="js/script.js"></script>
 </body>
 </html>
+
 
