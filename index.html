@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light only">
 
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
@@ -17,25 +16,7 @@
       box-sizing: border-box;
     }
 
-    <script>
-  const envelope = document.getElementById('envelope');
-  const music = document.getElementById('bg-music');
-
-  envelope.addEventListener('click', () => {
-    envelope.classList.add('fade-out');
-    envelope.querySelector('.envelope').classList.add('open');
-
-    music.volume = 0.4;
-    music.play().catch(() => {});
-  });
-</script>
-
-
     body {
-      <audio id="bg-music" preload="auto">
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
       height: 100vh;
       background: linear-gradient(180deg, #1f2f26, #2f4f3e);
       display: flex;
@@ -51,15 +32,15 @@
     }
 
     .envelope {
-  width: 260px;
-  height: 180px;
-  background: #F5F2ED !important;
-  position: relative;
-  margin: 0 auto 30px;
-  border-radius: 4px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-
+      width: 260px;
+      height: 180px;
+      background: #F5F2ED !important;
+      position: relative;
+      margin: 0 auto 30px;
+      border-radius: 4px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      transition: transform 1s ease, opacity 1s ease;
+    }
 
     .envelope::before {
       content: "";
@@ -73,24 +54,21 @@
     }
 
     h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 42px;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-  color: #D6C28F;
-}
-
+      font-family: 'Dancing Script', cursive;
+      font-size: 42px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      color: #D6C28F;
+    }
 
     p {
-  font-size: 15px;
-  opacity: 0.85;
-  max-width: 280px;
-  margin: 0 auto;
-  line-height: 1.6;
-  color: #E6D9B8;
-}
-
-
+      font-size: 15px;
+      opacity: 0.85;
+      max-width: 280px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #E6D9B8;
+    }
 
     .tap {
       margin-top: 15px;
@@ -99,35 +77,33 @@
       opacity: 0.7;
     }
 
-.envelope {
-  transition: transform 1s ease, opacity 1s ease;
-}
+    .envelope.open {
+      transform: translateY(-40px) scale(0.95);
+      opacity: 0;
+    }
 
-.envelope.open {
-  transform: translateY(-40px) scale(0.95);
-  opacity: 0;
-}
+    .envelope-container.fade-out {
+      animation: fadeOut 1.2s forwards;
+    }
 
-.envelope-container.fade-out {
-  animation: fadeOut 1.2s forwards;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-
-    
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
   </style>
 </head>
 
 <body>
 
- <div class="envelope-container" id="envelope">
+  <!-- 🎵 Música -->
+  <audio id="bg-music" preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
+  <!-- ✉️ Sobre -->
+  <div class="envelope-container" id="envelope">
     <div class="envelope"></div>
 
     <h1>Oscar & Yosselyn</h1>
@@ -141,5 +117,22 @@
     </div>
   </div>
 
+  <!-- ✨ JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const envelope = document.getElementById('envelope');
+      const music = document.getElementById('bg-music');
+
+      envelope.addEventListener('click', () => {
+        envelope.classList.add('fade-out');
+        envelope.querySelector('.envelope').classList.add('open');
+
+        music.volume = 0.4;
+        music.play().catch(() => {});
+      });
+    });
+  </script>
+
 </body>
 </html>
+
