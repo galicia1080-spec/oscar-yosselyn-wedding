@@ -45,7 +45,7 @@ body {
 
 /* PERGAMINO */
 .paper {
-  background-image: url("../img/pergamino.png");
+  background-image: url("../img/hoja.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100% auto;
@@ -53,13 +53,13 @@ body {
   width: 90%;
   max-width: 420px;
 
-  padding: 80px 40px;
-  min-height: 600px;
+  padding: 100px 40px 140px;
+  min-height: 700px;
 
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   animation: fadeUp 1s ease;
 }
