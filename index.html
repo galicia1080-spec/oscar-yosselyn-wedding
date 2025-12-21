@@ -5,65 +5,51 @@
   <title>Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<!-- SOBRE -->
-<div id="cover">
-  <img src="img/sobre.png" id="envelope" alt="Sobre">
-  <p class="tap">TOCA PARA ABRIR</p>
-</div>
-
-  <!-- HOJA 1 (PORTADA) -->
-  <section class="hoja">
-    <img src="assets/img/portada.png" class="imagen-principal">
-
-    <div class="contenido">
-      <h1>Oscar & Yosselyn</h1>
-      <p>
-        Con la bendición de Dios<br>
-        y nuestros seres queridos
-      </p>
-    </div>
+  <!-- ================== -->
+  <!-- FASE 1: EL SOBRE -->
+  <!-- ================== -->
+  <section id="cover">
+    <img src="img/sobre.png" id="envelope" alt="Sobre de invitación">
+    <div class="tap">TOCA PARA ABRIR</div>
   </section>
 
-<!-- HISTORIA (SCROLL) -->
-<div id="story">
+  <!-- ================== -->
+  <!-- FASE 2: LAS HOJAS -->
+  <!-- ================== -->
+  <section id="story">
 
-  <!-- HOJA 1 -->
-  <section class="page">
-    <div class="paper">
-      <h1>Oscar & Yosselyn</h1>
-      <p>Una historia que comenzó entre árboles y promesas.</p>
+    <!-- HOJA 1 -->
+    <div class="page">
+      <div class="paper">
+        <h1>Oscar & Yosselyn</h1>
+        <p>
+          Una historia que comenzó<br>
+          entre árboles y promesas.
+        </p>
+      </div>
     </div>
+
+    <!-- HOJA 2 (ejemplo futuro) -->
+    <!--
+    <div class="page">
+      <div class="paper">
+        <h2>Ubicación</h2>
+        <p>Próximamente…</p>
+      </div>
+    </div>
+    -->
+
   </section>
 
-  <!-- HOJA 2 -->
-  <section class="page">
-    <div class="paper">
-      <h2>Ubicación</h2>
-      <p>Templo · Ciudad · Fecha</p>
-    </div>
-  </section>
-
-  <!-- HOJA 3 -->
-  <section class="page">
-    <div class="paper">
-      <h2>Galería</h2>
-      <p>Momentos que nos trajeron hasta aquí.</p>
-    </div>
-  </section>
-
-</div>
-
-<audio id="music" src="audio/music.mp3" preload="auto"></audio>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
-
 
