@@ -12,17 +12,17 @@
 </head>
 <body>
   
+  <!-- FONDO FIJO -->
   <div class="fondo-bosque-fijo"></div>
+
   <!-- PANTALLA DE INICIO (SOBRE) -->
   <div id="cover">
-  <!-- Frase romántica antes del sobre -->
-  <h2 class="intro-phrase">"Juntos es nuestro<br>lugar favorito"</h2>
-  
-  <img src="img/sobre.png" id="envelope" alt="Abrir Invitación">
-  <p class="tap">TOCA EL SOBRE</p>
-</div>
+    <h2 class="intro-phrase">"Juntos es nuestro<br>lugar favorito"</h2>
+    <img src="img/sobre.png" id="envelope" alt="Abrir Invitación">
+    <p class="tap">TOCA EL SOBRE</p>
+  </div>
 
-  <!-- HISTORIA (SCROLL VERTICAL) -->
+  <!-- HISTORIA -->
   <div id="story">
 
     <!-- HOJA 1: BIENVENIDA -->
@@ -37,45 +37,46 @@
       </div>
     </section>
 
-    <!-- HOJA 2: DETALLES -->
     <!-- HOJA 2: CUÁNDO Y DÓNDE -->
-<section class="page">
-  <div class="paper">
-    <h2>Nuestra Boda</h2>
-    
-    <!-- CALENDARIO VISUAL -->
-    <div class="calendar-wrapper">
-      <div class="month">OCTUBRE</div>
-      <div class="calendar-grid">
-        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-        <!-- Días de relleno -->
-        <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
-        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
-        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
-        <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="heart-date">24</span><span>25</span>
-        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+    <section class="page">
+      <div class="paper">
+        <h2>Nuestra Boda</h2>
+        
+        <!-- CALENDARIO MARZO 2026 -->
+        <div class="calendar-wrapper">
+          <div class="month">MARZO 2026</div>
+          <div class="calendar-grid">
+            <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            
+            <!-- Marzo 2026 empieza en Domingo (los primeros 6 están vacíos) -->
+            <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+            
+            <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+            <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+            <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="heart-date">28</span><span>29</span>
+            <span>30</span><span>31</span>
+          </div>
+        </div>
+
+        <!-- CUENTA REGRESIVA -->
+        <div id="countdown">
+          <div class="time-box"><span id="days">00</span><small>Días</small></div>
+          <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
+        </div>
+
+        <div class="details-block">
+          <p><strong>Ceremonia & Recepción</strong><br>3:00 PM<br>Finca Los Robles</p>
+          
+          <a href="https://maps.google.com" target="_blank" class="btn-location">
+            Ver Ubicación en Mapa
+          </a>
+        </div>
+
       </div>
-    </div>
-
-    <!-- CUENTA REGRESIVA -->
-    <div id="countdown">
-      <div class="time-box"><span id="days">00</span><small>Días</small></div>
-      <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
-      <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
-      <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
-    </div>
-
-    <div class="details-block">
-      <p><strong>Ceremonia & Recepción</strong><br>4:00 PM<br>Finca Los Robles</p>
-      
-      <!-- BOTÓN DE UBICACIÓN -->
-      <a href="https://maps.google.com" target="_blank" class="btn-location">
-        Ver Ubicación en Mapa
-      </a>
-    </div>
-
-  </div>
-</section>
+    </section>
 
     <!-- HOJA 3: FINAL -->
     <section class="page">
