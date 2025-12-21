@@ -6,7 +6,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: url("../img/fondo-bosque.jpg") center / cover no-repeat fixed;
+  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat;
+  color: #4b3b26;
 }
 
 /* SOBRE */
@@ -27,10 +28,10 @@ body {
   margin-top: 15px;
   font-size: 12px;
   letter-spacing: 2px;
-  color: #c9b37e;
+  color: #d6c28f;
 }
 
-/* HISTORIA */
+/* STORY */
 #story {
   display: none;
 }
@@ -42,38 +43,36 @@ body {
   align-items: center;
 }
 
-/* HOJA */
+/* PERGAMINO */
 .paper {
-  background-image: url("../img/hoja.png");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% auto;
-
+  background: url("../img/pergamino.png") center/cover no-repeat;
   width: 90%;
   max-width: 420px;
-
-  min-height: 700px;
-  padding: 110px 40px 140px;
-
+  padding: 40px;
   text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  animation: fadeUp 1s ease;
 }
 
-/* TEXTO */
-h1 {
+/* TEXT */
+h1, h2 {
   font-family: 'Dancing Script', cursive;
   color: #c9b37e;
-  font-size: 42px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 p {
-  color: #4b3b26;
-  font-size: 18px;
   line-height: 1.6;
 }
 
+/* ANIM */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
