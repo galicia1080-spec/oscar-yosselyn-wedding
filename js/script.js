@@ -65,3 +65,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
   }
 });
+// --- LÓGICA DEL FORMULARIO ---
+  const form = document.getElementById('rsvp-form');
+  const message = document.getElementById('rsvp-message');
+  
+  // ¡¡¡PEGA AQUÍ TU LINK LARGO ENTRE LAS COMILLAS!!!
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwc6kMhPUHet1cgQTWMoDJ0ZvCD7PTc0JkHQZLJoOMWFfOiG81rap7mKXiuwzjnbpMN3Q/exec';
+
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault(); // Evita que la página se recargue
+      
+      const btn = document.getElementById('btn-submit');
+      const originalText = btn.innerText;
+      
+      // 1. Deshabilitar botón para que no den clic 2 veces
+      btn.disabled = true;
+      btn.innerText = "ENVIANDO...";
+
+      // 2. Enviar los datos a Google
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          // 3. Todo salió bien
+          form.style.display = "none"; // Ocultamos el form
+          message.style.display = "block"; // Mostramos el gracias
+          console.log('Success!', response);
+        })
+        .catch(error => {
+          // 4. Algo falló
+          console.error('Error!', error.message);
+          btn.disabled = false;
+          btn.innerText = originalText;
+          alert("Hubo un error al enviar. Intenta de nuevo.");
+        });
+    });
+  }
