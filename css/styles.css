@@ -4,31 +4,38 @@
   box-sizing: border-box;
 }
 
+/* Limpiamos el body para que sea transparente */
 body {
   font-family: 'Montserrat', sans-serif;
   color: #4b3b26;
-  /* Quitamos el background de aquí para evitar el salto */
-  background-color: #2e261d; 
-  position: relative;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: transparent; /* Importante */
+  overflow-x: hidden;
 }
 
-/* Creamos un elemento virtual que actuará como fondo fijo */
-body::before {
-  content: "";
-  position: fixed; /* Esto lo "clava" a la pantalla */
+/* El nuevo contenedor de la imagen */
+.fondo-bosque-fijo {
+  position: fixed; /* Se queda pegado a la pantalla */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* Altura de la pantalla */
   
-  /* Aquí ponemos tu imagen */
-  background: url("../img/fondo-bosque.jpg") center/cover no-repeat;
+  /* Z-index negativo para que se vaya al fondo de todo */
+  z-index: -999; 
   
-  z-index: -1; /* Lo mandamos al fondo de todo */
+  background: url("../img/fondo-bosque.jpg") center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   
-  /* Este truco ayuda a que el navegador sepa que esto no cambiará */
-  will-change: transform; 
+  /* TRUCO IMPORTANTE: 
+     NO usamos 'fixed' en el background-attachment aquí, 
+     porque el div YA es fixed. Esto evita el recálculo y el salto. */
+     
+  /* Esto ayuda a evitar parpadeos en móviles antiguos */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* --- SOBRE (PANTALLA DE INICIO) --- */
