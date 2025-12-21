@@ -10,30 +10,21 @@ body {
   color: #4b3b26;
   margin: 0;
   padding: 0;
-  background-color: transparent; /* Importante */
+  background-color: transparent;
   overflow-x: hidden;
 }
 
-/* El nuevo contenedor de la imagen */
+/* El nuevo contenedor de la imagen fija */
 .fondo-bosque-fijo {
-  position: fixed; /* Se queda pegado a la pantalla */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Altura de la pantalla */
-  
-  /* Z-index negativo para que se vaya al fondo de todo */
-  z-index: -999; 
-  
+  height: 100vh;
+  z-index: -999;
   background: url("../img/fondo-bosque.jpg") center center;
   background-size: cover;
   background-repeat: no-repeat;
-  
-  /* TRUCO IMPORTANTE: 
-     NO usamos 'fixed' en el background-attachment aquí, 
-     porque el div YA es fixed. Esto evita el recálculo y el salto. */
-     
-  /* Esto ayuda a evitar parpadeos en móviles antiguos */
   transform: translateZ(0);
   will-change: transform;
 }
@@ -46,12 +37,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.3); /* Un poco de oscuridad para que resalte el sobre */
-  position: fixed; /* Fijo para cubrir todo */
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  transition: opacity 1s ease; /* Transición suave al desaparecer */
+  transition: opacity 1s ease;
 }
 
 #envelope {
@@ -63,14 +54,14 @@ body {
 }
 
 #envelope:hover {
-  transform: scale(1.05); /* Efecto al pasar el mouse */
+  transform: scale(1.05);
 }
 
 .tap {
   margin-top: 20px;
   font-size: 14px;
   letter-spacing: 3px;
-  color: #fff; /* Blanco para que se lea mejor sobre el fondo oscuro */
+  color: #fff;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
   font-weight: 600;
   animation: latido 2s infinite;
@@ -78,21 +69,17 @@ body {
 
 /* --- HISTORIA (CONTENIDO) --- */
 #story {
-  display: none; /* Se activa con JS */
+  display: none;
   opacity: 0;
   transition: opacity 1s ease;
 }
 
 .page {
-  /* Antes tenías min-height: 100vh; ESO ERA EL CULPABLE */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Esto controla qué tan pegados están los pergaminos */
-  padding: 20px 0; 
-  /* Si quieres que estén aún más juntos, reduce este 20px o usa margin negativo */
+  padding: 20px 0;
 }
 
 /* --- EL PERGAMINO --- */
@@ -100,28 +87,25 @@ body {
   background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%; /* Estira el pergamino para cubrir el div */
-  
+  background-size: 100% 100%;
   width: 100%;
-  max-width: 400px; /* Ancho máximo elegante */
-  min-height: 550px; /* Altura mínima para que se vea el rollo */
-  
-  padding: 90px 50px; /* Padding generoso para que el texto no toque los bordes del rollo */
-  
+  max-width: 400px;
+  min-height: 550px;
+  padding: 90px 50px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+  animation: fadeUp 1s ease;
 }
 
 /* TIPOGRAFÍA */
 h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: #8c6b38; /* Dorado oscuro */
+  color: #8c6b38;
   margin-bottom: 10px;
   line-height: 1.2;
 }
@@ -139,23 +123,26 @@ p {
   margin-bottom: 15px;
 }
 
-/* PEQUEÑA ANIMACIÓN */
 @keyframes latido {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 
-/* CLASE UTILITARIA PARA OCULTAR EL SOBRE */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .hidden {
-  opacity: 0;
+  opacity: 0 !important;
   pointer-events: none;
 }
 
 /* --- FRASE DE PORTADA --- */
 .intro-phrase {
   font-family: 'Dancing Script', cursive;
-  color: #fff; /* Blanco para resaltar sobre el bosque oscuro */
+  color: #fff;
   font-size: 2rem;
   text-align: center;
   margin-bottom: 30px;
@@ -177,6 +164,7 @@ p {
   letter-spacing: 2px;
   margin-bottom: 5px;
   color: #5c4826;
+  text-transform: uppercase;
 }
 
 .calendar-grid {
@@ -187,7 +175,6 @@ p {
   color: #5c4826;
 }
 
-/* El día marcado (corazón o círculo) */
 .heart-date {
   background-color: #8c6b38;
   color: #fff;
@@ -198,7 +185,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; /* Centrar en la celda */
+  margin: 0 auto;
 }
 
 /* --- CUENTA REGRESIVA --- */
