@@ -84,21 +84,43 @@ body {
 
 /* --- EL PERGAMINO --- */
 .paper {
-  background-image: url("../img/pergamino.webp");
+  background-image: url("../img/pergamino.webp"); /* Ya es la correcta */
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: 100% 100%; 
+  
   width: 100%;
-  max-width: 400px;
-  min-height: 550px;
-  padding: 90px 50px;
+  max-width: 450px; /* Un poco más ancho para que quepan bien los muñequitos */
+  min-height: 600px;
+  
+  /* --- CAMBIO IMPORTANTE --- */
+  /* Aumentamos el segundo número (lados) a 50px o 60px 
+     para que el texto no toque las hojas verdes */
+  padding: 80px 50px; 
+  
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+  
+  /* Sombra para darle profundidad */
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+  
+  position: relative; 
   animation: fadeUp 1s ease;
+}
+
+/* --- CLASE MÁGICA PARA LAS FOTOS JPG (Copia esto al final del CSS) --- */
+.blend-img {
+  /* Esto hace que el fondo blanco del JPG se vuelva transparente */
+  mix-blend-mode: multiply; 
+  
+  /* Esto ayuda a que los colores no se vean lavados */
+  filter: contrast(1.05); 
+  
+  display: block;
+  margin: 0 auto;
 }
 
 /* TIPOGRAFÍA */
