@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat;
+  color: #4b3b26;
+}
+
+/* SOBRE */
+#cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#envelope {
+  width: 260px;
+  cursor: pointer;
+}
+
+.tap {
+  margin-top: 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #d6c28f;
+}
+
+/* STORY */
+#story {
+  display: none;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PERGAMINO */
+.paper {
+  background: url("../img/pergamino.png") center/cover no-repeat;
+  width: 90%;
+  max-width: 420px;
+  padding: 40px;
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+/* TEXT */
+h1, h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #c9b37e;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ANIM */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
