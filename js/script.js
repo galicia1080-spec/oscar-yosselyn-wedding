@@ -8,5 +8,5 @@ envelope.addEventListener("click", () => {
   story.style.display = "block";
 
   music.volume = 0.4;
-  music.play();
+  music.play().catch(() => {});
 });
