@@ -6,34 +6,55 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat;
-  color: #4b3b26;
+  /* Asegúrate que esta imagen exista en tu carpeta img */
+  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat; 
+  color: #4b3b26; /* Café oscuro */
+  overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-/* SOBRE */
+/* --- SOBRE (PANTALLA DE INICIO) --- */
 #cover {
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0,0,0,0.3); /* Un poco de oscuridad para que resalte el sobre */
+  position: fixed; /* Fijo para cubrir todo */
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: opacity 1s ease; /* Transición suave al desaparecer */
 }
 
 #envelope {
-  width: 260px;
+  width: 280px;
+  max-width: 80%;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+#envelope:hover {
+  transform: scale(1.05); /* Efecto al pasar el mouse */
 }
 
 .tap {
-  margin-top: 15px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #d6c28f;
+  margin-top: 20px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #fff; /* Blanco para que se lea mejor sobre el fondo oscuro */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  font-weight: 600;
+  animation: latido 2s infinite;
 }
 
-/* STORY */
+/* --- HISTORIA (CONTENIDO) --- */
 #story {
-  display: none;
+  display: none; /* Se activa con JS */
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .page {
@@ -41,49 +62,62 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-/* PERGAMINO */
+/* --- EL PERGAMINO --- */
 .paper {
   background-image: url("../img/pergamino.png");
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% auto;
-
-  width: 90%;
-  max-width: 420px;
-
-  padding: 80px 40px;
-  min-height: 600px;
-
+  background-position: center;
+  background-size: 100% 100%; /* Estira el pergamino para cubrir el div */
+  
+  width: 100%;
+  max-width: 400px; /* Ancho máximo elegante */
+  min-height: 550px; /* Altura mínima para que se vea el rollo */
+  
+  padding: 90px 50px; /* Padding generoso para que el texto no toque los bordes del rollo */
+  
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  animation: fadeUp 1s ease;
+  align-items: center;
+  
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
 }
 
-/* TEXT */
-h1, h2 {
+/* TIPOGRAFÍA */
+h1 {
   font-family: 'Dancing Script', cursive;
-  color: #c9b37e;
+  font-size: 3rem;
+  color: #8c6b38; /* Dorado oscuro */
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #8c6b38;
   margin-bottom: 15px;
 }
 
 p {
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
 }
 
-/* ANIM */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* PEQUEÑA ANIMACIÓN */
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
+/* CLASE UTILITARIA PARA OCULTAR EL SOBRE */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
