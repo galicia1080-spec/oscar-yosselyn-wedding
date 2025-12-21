@@ -4,13 +4,16 @@
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: url("../img/fondo-bosque.jpg") center/cover fixed no-repeat;
+  background: url("../img/fondo-bosque.jpg") center / cover fixed no-repeat;
   color: #4b3b26;
 }
 
-/* SOBRE */
+/* ================== */
+/* FASE 1: SOBRE */
+/* ================== */
 #cover {
   height: 100vh;
   display: flex;
@@ -22,6 +25,11 @@ body {
 #envelope {
   width: 260px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#envelope:hover {
+  transform: scale(1.05);
 }
 
 .tap {
@@ -31,11 +39,14 @@ body {
   color: #d6c28f;
 }
 
-/* STORY */
+/* ================== */
+/* FASE 2: HISTORIA */
+/* ================== */
 #story {
   display: none;
 }
 
+/* PÁGINA (SCROLL) */
 .page {
   min-height: 100vh;
   display: flex;
@@ -43,7 +54,7 @@ body {
   align-items: center;
 }
 
-/* PERGAMINO */
+/* HOJA */
 .paper {
   background-image: url("../img/hoja.png");
   background-repeat: no-repeat;
@@ -53,10 +64,11 @@ body {
   width: 90%;
   max-width: 420px;
 
-  padding: 100px 40px 140px;
+  padding: 110px 40px 140px;
   min-height: 700px;
 
   text-align: center;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -64,19 +76,23 @@ body {
   animation: fadeUp 1s ease;
 }
 
-
-/* TEXT */
+/* TEXTO */
 h1, h2 {
   font-family: 'Dancing Script', cursive;
   color: #c9b37e;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 42px;
 }
 
 p {
+  font-size: 18px;
   line-height: 1.6;
 }
 
-/* ANIM */
+/* ANIMACIÓN */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -87,3 +103,4 @@ p {
     transform: translateY(0);
   }
 }
+
