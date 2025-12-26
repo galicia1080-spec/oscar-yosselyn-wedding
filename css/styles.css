@@ -430,7 +430,8 @@ button[type="submit"]:hover {
   width: 100%;
   text-align: center;
   color: #c9b37e; /* Texto blanco */
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9); /* Sombra fuerte negra detrás de las letras */
+  /*text-shadow: 0 2px 10px rgba(0,0,0,0.9); /* Sombra fuerte negra detrás de las letras 
+  */
 }
 
 /* Ajustes específicos para los títulos de esta portada */
