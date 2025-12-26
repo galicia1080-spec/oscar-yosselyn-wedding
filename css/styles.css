@@ -357,7 +357,7 @@ button[type="submit"]:hover {
   width: 100%;
   height: 100%;
   /* Aquí va la foto de ustedes */
-  background: url("../img/portada-novios.jpg") center/cover no-repeat;
+  background: url("../img/portada-novios.webp") center/cover no-repeat;
   z-index: 1;
 }
 
