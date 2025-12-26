@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* El nuevo contenedor de la imagen fija */
+/* El nuevo contenedor de la imagen fija (Fondo Bosque) */
 .fondo-bosque-fijo {
   position: fixed;
   top: 0;
@@ -82,20 +82,16 @@ body {
   padding: 20px 0;
 }
 
-/* --- EL PERGAMINO --- */
+/* --- EL PERGAMINO GENERAL --- */
 .paper {
-  background-image: url("../img/pergamino.webp"); /* Ya es la correcta */
+  background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%; 
   
   width: 100%;
-  max-width: 450px; /* Un poco más ancho para que quepan bien los muñequitos */
+  max-width: 450px;
   min-height: 600px;
-  
-  /* --- CAMBIO IMPORTANTE --- */
-  /* Aumentamos el segundo número (lados) a 50px o 60px 
-     para que el texto no toque las hojas verdes */
   padding: 80px 50px; 
   
   text-align: center;
@@ -104,51 +100,72 @@ body {
   justify-content: center;
   align-items: center;
   
-  /* Sombra para darle profundidad */
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
-  
   position: relative; 
   animation: fadeUp 1s ease;
 }
 
-/* --- CLASE MÁGICA PARA LAS FOTOS JPG (Copia esto al final del CSS) --- */
-/* --- CORRECCIÓN DE IMÁGENES DRESSCODE --- */
-
-.dress-img {
-  display: block;
-  /* IMPORTANTE: width auto y max-width en porcentaje relativo al padre */
-  width: auto; 
-  max-width: 100%; 
-  height: auto;
+/* --- ESTILOS DE LA PORTADA (HOJA 1 - FOTO) --- */
+/* Esto reemplaza al pergamino en la primera hoja */
+.portada-foto {
+  /* Tu imagen editada con el marco incluido */
+  background-image: url("../img/portada-novios.webp"); 
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   
-  /* Reducimos el tamaño visual para que no toque las hojas */
-  max-height: 200px; /* Ajusta esto si las ves muy chicas */
-  
-  margin: 0 auto 15px auto;
-  border-radius: 8px; /* Bordes redondeados para suavizar el corte */
+  justify-content: flex-end; 
+  padding-bottom: 60px; 
 }
 
-.colors-img {
-  display: block;
-  width: auto;
-  max-width: 90%; /* Un poquito menos ancho que el contenedor */
-  height: auto;
-  margin: 0 auto 10px auto;
-  border-radius: 8px;
+/* Contenedor del texto de portada */
+.portada-content {
+  width: 100%;
+  text-align: center;
 }
 
-/* --- AJUSTE DEL MODO DE FUSIÓN --- */
-.blend-img {
-  /* 'multiply' oscurece. Si tus imágenes tienen fondo crema y el papel es crema,
-     a veces 'darken' funciona mejor para eliminar el parche claro.
-     Prueba cambiar 'multiply' por 'darken' si sigue viéndose el cuadro. */
-  mix-blend-mode: multiply; 
+/* TÍTULO PORTADA (Con borde blanco para leerse bien) */
+.portada-content h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 5px;
+  line-height: 1;
+  color: #8c6b38; /* Dorado */
   
-  /* Un poco de contraste ayuda a que el fondo crema se vuelva más blanco (y desaparezca) */
-  filter: contrast(1.1) brightness(1.05); 
+  /* Borde blanco alrededor de las letras */
+  text-shadow: 
+    2px 2px 0px #fff, 
+    -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 }
 
-/* TIPOGRAFÍA */
+/* FRASE PORTADA */
+.portada-content .intro-phrase {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #4b3b26; /* Café */
+  text-shadow: 0 0 5px rgba(255,255,255,0.8); /* Resplandor */
+  margin-bottom: 20px;
+}
+
+/* BOTÓN SCROLL PORTADA */
+.portada-content .scroll-indicator p {
+  color: #8c6b38;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  background-color: rgba(255,255,255,0.7);
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+
+/* --- TIPOGRAFÍA GENERAL --- */
 h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
@@ -170,6 +187,7 @@ p {
   margin-bottom: 15px;
 }
 
+/* --- ANIMACIONES --- */
 @keyframes latido {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -186,7 +204,7 @@ p {
   pointer-events: none;
 }
 
-/* --- FRASE DE PORTADA --- */
+/* --- FRASE INICIAL (ANTES DEL SOBRE) --- */
 .intro-phrase {
   font-family: 'Dancing Script', cursive;
   color: #fff;
@@ -281,10 +299,113 @@ p {
   background-color: #6b512a;
 }
 
-/* --- FORMULARIO RSVP --- */
+/* --- ESTILOS DEL DRESSCODE (Hoja 3) --- */
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #6b7a64;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.subtitle-small {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #4b3b26;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.dress-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  max-width: 90%;
+  margin: 0 auto 15px auto;
+}
+
+.dress-img {
+  display: block;
+  width: auto; 
+  max-width: 100%; 
+  height: auto;
+  max-height: 200px;
+  margin: 0 auto 15px auto;
+  border-radius: 8px;
+}
+
+.colors-img {
+  display: block;
+  width: auto;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto 10px auto;
+  border-radius: 8px;
+}
+
+/* Fusión de imágenes (Quitar fondo crema) */
+.blend-img {
+  mix-blend-mode: multiply; 
+  filter: contrast(1.1) brightness(1.05); 
+}
+
+.separator {
+  width: 40px;
+  height: 2px;
+  background-color: #8c6b38;
+  margin: 10px auto;
+  opacity: 0.3;
+}
+
+/* ESTRUCTURA DE COLUMNAS (Ellas vs Ellos) */
+.dress-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.dress-col {
+  flex: 1;
+  padding: 0 5px;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: #8c6b38;
+  height: 80px;
+  margin: 10px 10px;
+  opacity: 0.4;
+}
+
+.gender-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #4b3b26;
+  margin-bottom: 8px;
+}
+
+/* LISTA SIN PUNTOS (Lo que pediste) */
+.dress-list {
+  list-style: none; /* Adiós viñetas */
+  padding: 0;
+  margin: 0;
+}
+
+.dress-list li {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+/* --- FORMULARIO RSVP (Hoja 4) --- */
 .rsvp-form {
   width: 100%;
-  max-width: 300px; /* Ancho controlado */
+  max-width: 300px; 
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -313,7 +434,7 @@ p {
   justify-content: space-around;
   margin: 5px 0;
   font-size: 0.9rem;
-  accent-color: #8c6b38; /* Color del puntito seleccionado */
+  accent-color: #8c6b38;
 }
 
 button[type="submit"] {
@@ -332,126 +453,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #6b512a;
-}
-
-/* --- ESTILOS DE LA PORTADA (HOJA 1) --- */
-
-.cover-paper {
-  position: relative; /* Necesario para apilar las capas */
-  width: 90%;
-  max-width: 450px;
-  min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* Texto más abajo para que se vean sus caras */
-  padding-bottom: 60px; /* Espacio desde abajo */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  animation: fadeUp 1s ease;
-}
-
-/* Capa 1: La Foto */
-.layer-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Aquí va la foto de ustedes */
-  background: url("../img/portada-novios.webp") center/cover no-repeat;
-  z-index: 1;
-}
-
-/* Capa 2: El Marco de Hojas */
-.layer-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/pergamino.webp") center/100% 100% no-repeat;
-  z-index: 2;
-  
-  /* EL TRUCO MÁGICO: */
-  /* Hace que lo blanco del papel se vuelva transparente y se fusione con la foto */
-  mix-blend-mode: multiply; 
-}
-
-/* Capa 3: El Texto */
-.layer-text {
-  position: relative;
-  z-index: 3; /* Encima de todo */
-  text-align: center;
-  color: #fff; /* Texto blanco para resaltar sobre la foto */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Sombra negra fuerte para leerse bien */
-  width: 80%;
-}
-
-.big-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  color: #fff; /* Forzamos blanco */
-  line-height: 1;
-}
-
-.intro-text {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
-
-.scroll-indicator p {
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  color: #c9b37e; /* Un toque dorado */
-}
-
-/* --- ESTILOS ESPECÍFICOS PARA LA HOJA 1 (PORTADA) --- */
-
-.portada-foto {
-  /* CAMBIA ESTO por el nombre de tu imagen ya editada/unida */
-  background-image: url("../img/portada-novios.webp"); 
-  
-  /* Aseguramos que cubra todo el papel */
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* Ajustamos el contenido para que se vaya abajo (opcional) */
-  justify-content: flex-end; 
-  padding-bottom: 60px; /* Espacio desde el borde inferior */
-}
-
-/* Contenedor del texto para que se lea mejor */
-.portada-content {
-  width: 100%;
-  text-align: center;
-  color: #c9b37e; /* Texto blanco */
-  /*text-shadow: 0 2px 10px rgba(0,0,0,0.9); /* Sombra fuerte negra detrás de las letras 
-  */
-}
-
-/* Ajustes específicos para los títulos de esta portada */
-.portada-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  color: #c9b37e; /* Forzamos blanco en lugar del dorado */
-}
-
-.portada-content .intro-phrase {
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: #c9b37e;
-}
-
-.portada-content .scroll-indicator p {
-  color: #c9b37e; /* Dorado brillante para el "Nos casamos" */
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-top: 15px;
 }
