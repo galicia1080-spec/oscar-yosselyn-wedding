@@ -26,17 +26,31 @@
   <div id="story">
 
     <!-- HOJA 1: BIENVENIDA -->
+    <!-- HOJA 1: PORTADA CON FOTO -->
     <section class="page">
-      <div class="paper">
-        <h1>Oscar & Yosselyn</h1>
-        <p>
-          "El amor es plantar un bosque <br>donde antes solo había tierra."
-        </p>
-        <p>¡Nos Casamos!</p>
-        <small>Desliza hacia abajo ↓</small>
+      <!-- Usamos una clase nueva 'cover-paper' para personalizar esta hoja sola -->
+      <div class="cover-paper">
+        
+        <!-- CAPA 1: La foto de ustedes (Fondo) -->
+        <div class="layer-photo"></div>
+        
+        <!-- CAPA 2: El marco de hojas (Encima) -->
+        <div class="layer-frame"></div>
+        
+        <!-- CAPA 3: El Texto (Hasta arriba) -->
+        <div class="layer-text">
+          <h1 class="big-title">Oscar & Yosselyn</h1>
+          <p class="intro-text">
+            "El amor es plantar un bosque <br>donde antes solo había tierra."
+          </p>
+          <div class="scroll-indicator">
+            <p>¡Nos Casamos!</p>
+            <small>Desliza hacia abajo ↓</small>
+          </div>
+        </div>
+
       </div>
     </section>
-
     <!-- HOJA 2: CUÁNDO Y DÓNDE -->
     <section class="page">
       <div class="paper">
