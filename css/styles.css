@@ -333,3 +333,78 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #6b512a;
 }
+
+/* --- ESTILOS DE LA PORTADA (HOJA 1) --- */
+
+.cover-paper {
+  position: relative; /* Necesario para apilar las capas */
+  width: 90%;
+  max-width: 450px;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Texto más abajo para que se vean sus caras */
+  padding-bottom: 60px; /* Espacio desde abajo */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  animation: fadeUp 1s ease;
+}
+
+/* Capa 1: La Foto */
+.layer-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Aquí va la foto de ustedes */
+  background: url("../img/portada-novios.jpg") center/cover no-repeat;
+  z-index: 1;
+}
+
+/* Capa 2: El Marco de Hojas */
+.layer-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/pergamino.webp") center/100% 100% no-repeat;
+  z-index: 2;
+  
+  /* EL TRUCO MÁGICO: */
+  /* Hace que lo blanco del papel se vuelva transparente y se fusione con la foto */
+  mix-blend-mode: multiply; 
+}
+
+/* Capa 3: El Texto */
+.layer-text {
+  position: relative;
+  z-index: 3; /* Encima de todo */
+  text-align: center;
+  color: #fff; /* Texto blanco para resaltar sobre la foto */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Sombra negra fuerte para leerse bien */
+  width: 80%;
+}
+
+.big-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  color: #fff; /* Forzamos blanco */
+  line-height: 1;
+}
+
+.intro-text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.scroll-indicator p {
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #c9b37e; /* Un toque dorado */
+}
