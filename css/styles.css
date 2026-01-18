@@ -30,12 +30,9 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -999;
-  
   background: url("../img/fondo-bosque.jpg") center center;
   background-size: cover;
   background-repeat: no-repeat;
-  
-  /* Capa base para evitar inversión de color */
   background-color: #f0f0f0; 
   isolation: isolate;
   transform: translateZ(0);
@@ -78,97 +75,47 @@ body {
   padding: 15px 0;
 }
 
-/* --- EL PERGAMINO (CORREGIDO) --- */
+/* --- EL PERGAMINO --- */
 .paper {
   background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%; 
-  
-  /* TAMAÑO Y FORMA */
   width: 95%;
   max-width: 400px; 
-  
-  /* ESTA LÍNEA ES LA QUE FALTABA PARA EVITAR DEFORMACIÓN: */
   aspect-ratio: 2 / 3; 
-  
   min-height: 600px;
   height: auto; 
-  
   padding: 80px 30px; 
-  
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
   position: relative; 
   animation: fadeUp 1s ease;
-  
   background-color: transparent !important;
   isolation: isolate;
 }
 
 /* --- PORTADA (FOTO) --- */
-/* --- PORTADA (FOTO) --- */
 .portada-foto {
   background-image: url("../img/portada-novios.webp"); 
-  
-  /* --- CORRECCIÓN AQUÍ --- */
-  /* Antes tenías 'cover', por eso se cortaban los lados. */
-  /* Cambiamos a '100% 100%' para que la imagen se obligue a entrar 
-     completa en el cuadro, sin salirse ni un píxel. */
   background-size: 100% 100%; 
-  
   background-position: center; 
   background-repeat: no-repeat;
   justify-content: flex-end; 
   padding-bottom: 50px; 
 }
 
-/* --- CAMBIOS EN EL DRESSCODE --- */
-
-/* Nuevo estilo para el título más pequeño */
-.dresscode-title {
-  font-family: 'Dancing Script', cursive; /* O 'Montserrat' si prefieres letra molde */
-  font-size: 2rem; /* Mucho más pequeño que el 3rem de la portada */
-  color: #8c6b38;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-/* Imagen Personas: Reducida un 20% */
-.dress-img { 
-  display: block; 
-  width: auto; 
-  max-width: 100%; 
-  height: auto; 
-  /* Antes era 200px -> Ahora 160px */
-  max-height: 140px; 
-  margin: 0 auto 10px auto; 
-  border-radius: 8px; 
-}
-
-/* Imagen Colores: Reducida un 20% */
-.colors-img { 
-  display: block; 
-  width: auto; 
-  /* Antes era 90% -> Ahora 70% */
-  max-width: 60%; 
-  height: auto; 
-  margin: 0 auto 10px auto; 
-  border-radius: 8px; 
-}
-
+/* CONTENIDO PORTADA */
 .portada-content { width: 100%; text-align: center; }
 
-/* CORREGIDO: APLICAMOS TANGERINE AL H1 */
 .portada-content h1 {
   font-family: 'Tangerine', cursive; 
-  font-weight: 700; /* Bold */
-  font-size: 4.5rem; /* Tangerine es una fuente pequeña, hay que hacerla más grande */
+  font-weight: 700; 
+  font-size: 4.5rem; 
   margin-bottom: 5px; 
   line-height: 0.8; 
   color: #8c6b38; 
@@ -178,12 +125,6 @@ body {
 .portada-content .intro-phrase {
   font-size: 1rem; font-weight: 600; line-height: 1.4; color: #4b3b26; 
   text-shadow: 0 0 5px rgba(255,255,255,0.8); margin-bottom: 20px;
-}
-
-.scroll-indicator { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
-.scroll-indicator p {
-  color: #8c6b38; text-transform: uppercase; font-weight: bold; letter-spacing: 2px;
-  background-color: rgba(255,255,255,0.85); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 10px;
 }
 
 /* --- FOTOS ENMARCADAS --- */
@@ -206,13 +147,43 @@ body {
   max-height: 320px; 
 }
 
-/* Ajuste para el texto largo de la foto */
 .photo-caption { 
   font-family: 'Dancing Script', cursive; 
-  font-size: 1.2rem; /* Un poco más pequeño para que quepa el texto largo */
+  font-size: 1.2rem; 
   color: #8c6b38; 
   margin-top: 10px; 
   line-height: 1.4;
+}
+
+/* --- CAMBIOS EN EL DRESSCODE (REDUCCIÓN) --- */
+
+.dresscode-title {
+  font-family: 'Dancing Script', cursive; 
+  font-size: 2rem; 
+  color: #8c6b38;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* REDUCCIÓN 1: Imagen Personas a 120px */
+.dress-img { 
+  display: block; 
+  width: auto; 
+  max-width: 100%; 
+  height: auto; 
+  max-height: 120px; /* <--- AQUÍ ESTÁ EL CAMBIO */
+  margin: 0 auto 10px auto; 
+  border-radius: 8px; 
+}
+
+/* REDUCCIÓN 2: Imagen Colores al 50% de ancho */
+.colors-img { 
+  display: block; 
+  width: auto; 
+  max-width: 50%; /* <--- AQUÍ ESTÁ EL CAMBIO */
+  height: auto; 
+  margin: 0 auto 10px auto; 
+  border-radius: 8px; 
 }
 
 /* --- SLIDESHOW --- */
@@ -232,18 +203,17 @@ body {
 .slide:nth-child(4) { animation-delay: 12s; }
 @keyframes crossfade { 0% { opacity: 0; } 10% { opacity: 1; } 25% { opacity: 1; } 35% { opacity: 0; } 100% { opacity: 0; } }
 
-/* --- TIPOGRAFÍA GENERAL (Respaldo) --- */
+/* --- TIPOGRAFÍA Y OTROS --- */
 h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
 h2 { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #8c6b38; margin-bottom: 15px; }
 p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 
-/* --- ANIMACIONES --- */
 @keyframes latido { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 .hidden { opacity: 0 !important; pointer-events: none; }
 .intro-phrase { font-family: 'Dancing Script', cursive; color: #fff; font-size: 2rem; text-align: center; margin-bottom: 30px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: fadeUp 2s ease; }
 
-/* --- OTROS COMPONENTES --- */
+/* COMPONENTES EXTRA */
 .calendar-wrapper { margin: 10px auto; width: 90%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
 .month { font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; color: #5c4826; text-transform: uppercase; }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.8rem; color: #5c4826; }
@@ -255,12 +225,10 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 .btn-location { display: inline-block; margin-top: 10px; padding: 10px 25px; background-color: #8c6b38; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
 .btn-location:hover { background-color: #6b512a; }
 
-/* DRESSCODE */
+/* DRESSCODE EXTRA */
 .subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #6b7a64; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
 .subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
 .dress-note { font-size: 0.85rem; font-style: italic; max-width: 100%; margin: 0 auto 15px auto; }
-.dress-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 200px; margin: 0 auto 15px auto; border-radius: 8px; }
-.colors-img { display: block; width: auto; max-width: 90%; height: auto; margin: 0 auto 10px auto; border-radius: 8px; }
 .blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
 .separator { width: 40px; height: 2px; background-color: #8c6b38; margin: 10px auto; opacity: 0.3; }
 .dress-grid { display: flex; justify-content: center; align-items: flex-start; width: 100%; margin-top: 10px; }
