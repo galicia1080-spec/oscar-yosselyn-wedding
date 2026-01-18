@@ -222,7 +222,7 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 .time-box { display: flex; flex-direction: column; background: rgba(140, 107, 56, 0.1); padding: 5px; border-radius: 5px; width: 50px; }
 .time-box span { font-weight: bold; font-size: 1.2rem; color: #8c6b38; }
 .time-box small { font-size: 0.7rem; }
-.btn-location { display: inline-block; margin-top: 10px; padding: 10px 25px; background-color: #8c6b38; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+.btn-location { display: inline-block; margin-top: 10px; padding: 10px 25px; background-color: #4b3b26; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
 .btn-location:hover { background-color: #6b512a; }
 
 /* DRESSCODE EXTRA */
