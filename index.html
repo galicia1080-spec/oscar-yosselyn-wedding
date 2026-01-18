@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="light only">
   <title>Boda Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -139,47 +140,21 @@
       </div>
     </section>
 
-    <!-- HOJA 4: CONFIRMACIÓN -->
+   <!-- HOJA 4: CONFIRMACIÓN -->
     <section class="page">
       <div class="paper">
-        <h2>Confirmación</h2>
-        <p>Por favor confirma tu asistencia<br>antes del 1 de Febrero.</p>
-
-        <!-- El Formulario -->
-        <form id="rsvp-form" class="rsvp-form">
-          
-          <div class="input-group">
-            <input type="text" name="Nombre" placeholder="Nombre Completo" required>
-          </div>
-
-          <div class="radio-group">
-            <label>
-              <input type="radio" name="Asistencia" value="Si" checked> ¡Sí voy!
-            </label>
-            <label>
-              <input type="radio" name="Asistencia" value="No"> No podré ir
-            </label>
-          </div>
-
-          <div class="input-group">
-            <input type="number" name="Personas" placeholder="Número de personas" min="1" max="5" required>
-          </div>
-
-          <div class="input-group">
-            <textarea name="Mensaje" placeholder="¿Alguna alergia o mensaje?"></textarea>
-          </div>
-
-          <button type="submit" id="btn-submit">ENVIAR CONFIRMACIÓN</button>
-        </form>
-
-        <!-- Mensaje de éxito (oculto al inicio) -->
+        <!-- ... todo el contenido del formulario ... -->
+        
+        <!-- Mensaje de éxito -->
         <div id="rsvp-message" style="display:none; margin-top:20px;">
           <h3 style="color:#5c6b48;">¡Gracias!</h3>
           <p>Hemos recibido tu respuesta.</p>
         </div>
 
-      </div>
-    </section>
+      </div> <!-- Cierre de paper -->
+    </section> <!-- Cierre de section -->
+
+  </div> <!-- <--- ¡ESTE ES EL QUE FALTABA! (Cierre de #story) -->
 
   <!-- AUDIO -->
   <audio id="music" src="audio/music.mp3" preload="auto" loop></audio>
