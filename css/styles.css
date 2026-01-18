@@ -18,6 +18,19 @@ body {
   overflow-x: hidden; 
 }
 
+.tangerine-regular {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tangerine-bold {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 /* --- FONDO DE BOSQUE --- */
 .fondo-bosque-fijo {
   position: fixed;
