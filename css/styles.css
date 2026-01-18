@@ -1,21 +1,68 @@
+/* --- BLOQUEO DE MODO OSCURO (SOLUCIÓN NUCLEAR) --- */
+
 :root {
-  color-scheme: light;
+  color-scheme: light only; /* Estándar */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Forzamos al documento entero a ser blanco base */
+html {
+  background-color: #ffffff !important;
+  filter: none !important;
 }
 
-/* Limpiamos el body y forzamos transparente para evitar el gris de Samsung */
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #4b3b26;
+  color: #4b3b26 !important; /* Forzamos el color café */
   margin: 0;
   padding: 0;
-  background-color: transparent !important;
+  
+  /* Truco: Fondo blanco base, con la imagen encima. 
+     Esto evita que el navegador piense que el fondo es "transparente" y ponga negro. */
+  background-color: #ffffff !important; 
+  
   overflow-x: hidden;
+  
+  /* Reseteo de filtros para Samsung */
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+/* --- AJUSTE AL FONDO FIJO --- */
+.fondo-bosque-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -999;
+  
+  /* Aseguramos que la imagen se muestre tal cual */
+  background: url("../img/fondo-bosque.jpg") center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  /* Si el navegador intenta oscurecerlo, forzamos brillo normal */
+  filter: brightness(1) contrast(1) !important;
+  
+  /* Truco: Una capa blanca detrás de la imagen por si acaso */
+  background-color: #fff; 
+  
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* --- REGLA ESPECÍFICA PARA DISPOSITIVOS EN MODO OSCURO --- */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #ffffff !important;
+    color: #4b3b26 !important;
+  }
+  
+  /* Esto evita que inviertan las imágenes (negativo) */
+  img, .paper, .fondo-bosque-fijo {
+    filter: none !important;
+    isolation: isolate; /* Crea un contexto nuevo para que no le afecte el filtro global */
+  }
 }
 
 /* El nuevo contenedor de la imagen fija */
