@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN DE LUZ (SAMSUNG FIX) --- */
+/* --- CONFIGURACIÓN GENERAL --- */
 :root {
   color-scheme: light;
 }
@@ -14,8 +14,8 @@ body {
   color: #4b3b26;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  /* Eliminamos fondos raros aquí para que no confunda al navegador */
+  background-color: transparent !important; /* Clave para el fondo */
+  overflow-x: hidden; 
 }
 
 /* --- FONDO DE BOSQUE --- */
@@ -31,11 +31,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   
-  /* ESTO ES CLAVE PARA SAMSUNG: */
-  /* Una capa blanca casi invisible detrás de la imagen ayuda a que 
-     el navegador sepa que es modo claro */
-  background-color: #fcfcfc; 
-  
+  /* Esto ayuda a que Samsung no lo invierta */
+  background-color: #f0f0f0; 
+  isolation: isolate;
   transform: translateZ(0);
 }
 
@@ -49,20 +47,15 @@ body {
   align-items: center;
   background-color: rgba(0,0,0,0.3);
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
+  top: 0; left: 0; z-index: 100;
   transition: opacity 1s ease;
 }
 
 #envelope {
-  width: 280px;
-  max-width: 80%;
-  cursor: pointer;
+  width: 280px; max-width: 80%; cursor: pointer;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
-
 #envelope:hover { transform: scale(1.05); }
 
 .tap {
@@ -78,35 +71,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 15px 0; /* Menos espacio arriba/abajo entre hojas */
 }
 
-/* --- CORRECCIÓN DE DEFORMACIÓN DEL PERGAMINO --- */
+/* --- EL PERGAMINO (CORREGIDO TEXTO) --- */
 .paper {
   background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
-  
-  /* Mantenemos 100% 100% para que el borde se vea completo... */
+  /* Estiramos el fondo para llenar la caja */
   background-size: 100% 100%; 
   
-  /* ...PERO controlamos la forma de la caja: */
+  /* AQUÍ ESTÁ EL ARREGLO DE TAMAÑO: */
+  /* Usamos un ancho casi fijo. 380px es el ancho estándar de un celular.
+     Si el celular es más pequeño (ej. iPhone SE), se ajusta al 95%. */
+  width: 95%;
+  max-width: 400px; 
   
-  /* 1. Ancho controlado: Nunca más ancho de 420px */
-  width: 90%; 
-  max-width: 420px; 
+  /* Altura mínima para que quepa todo */
+  min-height: 600px;
+  height: auto; 
   
-  /* 2. ARREGLO MÁGICO: Aspect Ratio */
-  /* Esto obliga a la caja a mantener forma de hoja vertical.
-     Si el contenido crece, la hoja crece proporcionalmente a lo ancho y alto.
-     Evita que se vea "gorda" al girar el celular. */
-  aspect-ratio: 2 / 3; 
-  
-  /* Si el texto es MUY largo, permitimos que crezca hacia abajo */
-  min-height: 550px; 
-  height: auto;
-  
-  padding: 80px 45px; 
+  /* --- CLAVE PARA QUE QUEPA EL TEXTO --- */
+  /* Reducimos el padding lateral a 30px (antes 50px).
+     Esto da más espacio a las letras para que no se bajen de renglón. */
+  padding: 80px 30px; 
   
   text-align: center;
   display: flex;
@@ -117,26 +106,33 @@ body {
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
   position: relative; 
   animation: fadeUp 1s ease;
+  
+  /* Evita que Samsung oscurezca el papel */
+  background-color: transparent !important;
+  isolation: isolate;
 }
 
 /* --- PORTADA (FOTO) --- */
 .portada-foto {
   background-image: url("../img/portada-novios.webp"); 
-  /* 'cover' recorta la foto para llenar el espacio SIN DEFORMARLA */
   background-size: cover; 
-  background-position: center top; /* Enfoca las caras (usualmente arriba) */
+  background-position: center top; 
   background-repeat: no-repeat;
   justify-content: flex-end; 
-  padding-bottom: 60px; 
+  padding-bottom: 50px; 
 }
 
 .portada-content { width: 100%; text-align: center; }
+
+/* Reduje un poco el tamaño de la fuente para evitar saltos de línea feos */
 .portada-content h1 {
-  font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-bottom: 5px; line-height: 1; color: #8c6b38; 
+  font-family: 'Dancing Script', cursive; 
+  font-size: 3rem; /* Antes 3.5rem, bajé un poco */
+  margin-bottom: 5px; line-height: 1; color: #8c6b38; 
   text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 .portada-content .intro-phrase {
-  font-size: 1.1rem; font-weight: 600; line-height: 1.4; color: #4b3b26; 
+  font-size: 1rem; font-weight: 600; line-height: 1.4; color: #4b3b26; 
   text-shadow: 0 0 5px rgba(255,255,255,0.8); margin-bottom: 20px;
 }
 
@@ -146,72 +142,60 @@ body {
   background-color: rgba(255,255,255,0.85); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 10px;
 }
 
-/* --- FOTOS ENMARCADAS (CORRECCIÓN DEFORMACIÓN) --- */
+/* --- FOTOS ENMARCADAS --- */
 .photo-frame {
   background-color: #fff;
-  padding: 10px;
+  padding: 8px; /* Menos borde blanco */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transform: rotate(-2deg);
   margin-bottom: 15px;
   
-  /* La caja se ajusta al contenido */
-  width: fit-content; 
-  max-width: 90%; 
-  margin-left: auto; margin-right: auto;
+  /* Ajuste automático */
+  width: auto;
+  max-width: 100%; 
+  display: inline-block;
 }
-
 .page:nth-child(even) .photo-frame { transform: rotate(2deg); }
 
 .photo-frame img {
   display: block;
-  /* Altura y ancho automáticos mantienen la proporción original */
-  width: auto; 
-  height: auto;
-  
-  /* Límites para que no se salga */
+  width: auto; height: auto;
   max-width: 100%; 
-  max-height: 350px; 
+  /* Altura máxima controlada para que no se estiren */
+  max-height: 320px; 
 }
+.photo-caption { font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #8c6b38; margin-top: 10px; }
 
-.photo-caption { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #8c6b38; margin-top: 10px; }
-
-/* --- SLIDESHOW CORREGIDO --- */
+/* --- SLIDESHOW --- */
 .slideshow-container {
-  width: 90%;
-  max-width: 280px;
-  height: 350px;
-  position: relative;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transform: rotate(-2deg);
+  width: 90%; max-width: 260px; height: 320px; /* Un poco más chico */
+  position: relative; margin: 20px auto;
+  background-color: #fff; padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-2deg);
 }
-
 .slide {
   position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: calc(100% - 20px);
-  object-fit: cover; /* Recorta, NO deforma */
-  opacity: 0; animation: crossfade 16s infinite;
+  object-fit: cover; opacity: 0; animation: crossfade 16s infinite;
 }
-
-/* ... ANIMACIONES DEL SLIDE (Igual que antes) ... */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
 .slide:nth-child(4) { animation-delay: 12s; }
 @keyframes crossfade { 0% { opacity: 0; } 10% { opacity: 1; } 25% { opacity: 1; } 35% { opacity: 0; } 100% { opacity: 0; } }
 
-/* --- TIPOGRAFÍA Y OTROS --- */
-h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
-h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #8c6b38; margin-bottom: 15px; }
-p { font-size: 1rem; line-height: 1.8; margin-bottom: 15px; }
+/* --- TIPOGRAFÍA GENERAL --- */
+h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
+h2 { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #8c6b38; margin-bottom: 15px; }
+p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+
+/* --- ANIMACIONES --- */
 @keyframes latido { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 .hidden { opacity: 0 !important; pointer-events: none; }
 .intro-phrase { font-family: 'Dancing Script', cursive; color: #fff; font-size: 2rem; text-align: center; margin-bottom: 30px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: fadeUp 2s ease; }
 
-/* CALENDARIO, CUENTA REGRESIVA Y MAPA (Igual que antes) */
-.calendar-wrapper { margin: 10px auto; width: 80%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
+/* --- ELEMENTOS EXTRA --- */
+.calendar-wrapper { margin: 10px auto; width: 90%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
 .month { font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; color: #5c4826; text-transform: uppercase; }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.8rem; color: #5c4826; }
 .heart-date { background-color: #8c6b38; color: #fff; border-radius: 50%; font-weight: bold; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; margin: 0 auto; }
@@ -225,7 +209,7 @@ p { font-size: 1rem; line-height: 1.8; margin-bottom: 15px; }
 /* DRESSCODE */
 .subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #6b7a64; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
 .subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
-.dress-note { font-size: 0.85rem; font-style: italic; max-width: 90%; margin: 0 auto 15px auto; }
+.dress-note { font-size: 0.85rem; font-style: italic; max-width: 100%; margin: 0 auto 15px auto; }
 .dress-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 200px; margin: 0 auto 15px auto; border-radius: 8px; }
 .colors-img { display: block; width: auto; max-width: 90%; height: auto; margin: 0 auto 10px auto; border-radius: 8px; }
 .blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
