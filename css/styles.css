@@ -1,23 +1,24 @@
 :root {
   color-scheme: light;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Limpiamos el body para que sea transparente */
+/* Limpiamos el body y forzamos transparente para evitar el gris de Samsung */
 body {
   font-family: 'Montserrat', sans-serif;
   color: #4b3b26;
   margin: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: transparent !important;
   overflow-x: hidden;
 }
 
-/* El nuevo contenedor de la imagen fija (Fondo Bosque) */
+/* El nuevo contenedor de la imagen fija */
 .fondo-bosque-fijo {
   position: fixed;
   top: 0;
@@ -109,86 +110,100 @@ body {
 }
 
 /* --- ESTILOS DE LA PORTADA (HOJA 1 - FOTO) --- */
-/* Esto reemplaza al pergamino en la primera hoja */
 .portada-foto {
-  /* Tu imagen editada con el marco incluido */
   background-image: url("../img/portada-novios.webp"); 
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  
   justify-content: flex-end; 
   padding-bottom: 60px; 
 }
 
-/* Contenedor del texto de portada */
 .portada-content {
   width: 100%;
   text-align: center;
 }
 
-/* TÍTULO PORTADA (Con borde blanco para leerse bien) */
 .portada-content h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 3.5rem;
   margin-bottom: 5px;
   line-height: 1;
-  color: #8c6b38; /* Dorado */
-  
-  /* Borde blanco alrededor de las letras */
-  text-shadow: 
-    2px 2px 0px #fff, 
-    -1px -1px 0 #fff,  
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff;
+  color: #8c6b38; 
+  text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
-/* FRASE PORTADA */
 .portada-content .intro-phrase {
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #4b3b26; /* Café */
-  text-shadow: 0 0 5px rgba(255,255,255,0.8); /* Resplandor */
+  color: #4b3b26; 
+  text-shadow: 0 0 5px rgba(255,255,255,0.8);
   margin-bottom: 20px;
 }
 
-/* BOTÓN SCROLL PORTADA */
-.portada-content .scroll-indicator p {
+/* Corrección Alineación Botón */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.scroll-indicator p {
   color: #8c6b38;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
-  margin-top: 10px;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.85);
   display: inline-block;
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 10px; /* Separación vertical */
 }
 
+/* --- SLIDESHOW (HOJA 2) --- */
+.slideshow-container {
+  width: 90%;
+  max-width: 280px;
+  height: 350px;
+  position: relative;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+}
+
+.slide {
+  position: absolute;
+  top: 10px; left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: cover;
+  opacity: 0;
+  animation: crossfade 16s infinite;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+
+@keyframes crossfade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  25% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
 
 /* --- TIPOGRAFÍA GENERAL --- */
-h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  color: #8c6b38;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  color: #8c6b38;
-  margin-bottom: 15px;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 15px;
-}
+h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
+h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #8c6b38; margin-bottom: 15px; }
+p { font-size: 1rem; line-height: 1.8; margin-bottom: 15px; }
 
 /* --- ANIMACIONES --- */
 @keyframes latido {
@@ -196,18 +211,13 @@ p {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.hidden { opacity: 0 !important; pointer-events: none; }
 
-.hidden {
-  opacity: 0 !important;
-  pointer-events: none;
-}
-
-/* --- FRASE INICIAL (ANTES DEL SOBRE) --- */
+/* --- FRASE INICIAL --- */
 .intro-phrase {
   font-family: 'Dancing Script', cursive;
   color: #fff;
@@ -219,241 +229,41 @@ p {
 }
 
 /* --- CALENDARIO --- */
-.calendar-wrapper {
-  margin: 10px auto;
-  width: 80%;
-  border-top: 1px solid #8c6b38;
-  border-bottom: 1px solid #8c6b38;
-  padding: 10px 0;
-}
-
-.month {
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-  color: #5c4826;
-  text-transform: uppercase;
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
-  font-size: 0.8rem;
-  color: #5c4826;
-}
-
-.heart-date {
-  background-color: #8c6b38;
-  color: #fff;
-  border-radius: 50%;
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
+.calendar-wrapper { margin: 10px auto; width: 80%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
+.month { font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; color: #5c4826; text-transform: uppercase; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.8rem; color: #5c4826; }
+.heart-date { background-color: #8c6b38; color: #fff; border-radius: 50%; font-weight: bold; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; margin: 0 auto; }
 
 /* --- CUENTA REGRESIVA --- */
-#countdown {
-  display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
-  width: 100%;
-}
-
-.time-box {
-  display: flex;
-  flex-direction: column;
-  background: rgba(140, 107, 56, 0.1);
-  padding: 5px;
-  border-radius: 5px;
-  width: 50px;
-}
-
-.time-box span {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #8c6b38;
-}
-
-.time-box small {
-  font-size: 0.7rem;
-}
+#countdown { display: flex; justify-content: space-around; margin: 15px 0; width: 100%; }
+.time-box { display: flex; flex-direction: column; background: rgba(140, 107, 56, 0.1); padding: 5px; border-radius: 5px; width: 50px; }
+.time-box span { font-weight: bold; font-size: 1.2rem; color: #8c6b38; }
+.time-box small { font-size: 0.7rem; }
 
 /* --- BOTÓN UBICACIÓN --- */
-.btn-location {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 25px;
-  background-color: #8c6b38;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: background 0.3s;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
+.btn-location { display: inline-block; margin-top: 10px; padding: 10px 25px; background-color: #8c6b38; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+.btn-location:hover { background-color: #6b512a; }
 
-.btn-location:hover {
-  background-color: #6b512a;
-}
+/* --- DRESSCODE --- */
+.subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #6b7a64; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
+.subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
+.dress-note { font-size: 0.85rem; font-style: italic; max-width: 90%; margin: 0 auto 15px auto; }
+.dress-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 200px; margin: 0 auto 15px auto; border-radius: 8px; }
+.colors-img { display: block; width: auto; max-width: 90%; height: auto; margin: 0 auto 10px auto; border-radius: 8px; }
+.blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
+.separator { width: 40px; height: 2px; background-color: #8c6b38; margin: 10px auto; opacity: 0.3; }
 
-/* --- ESTILOS DEL DRESSCODE (Hoja 3) --- */
-.subtitle {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #6b7a64;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
+.dress-grid { display: flex; justify-content: center; align-items: flex-start; width: 100%; margin-top: 10px; }
+.dress-col { flex: 1; padding: 0 5px; }
+.vertical-line { width: 1px; background-color: #8c6b38; height: 80px; margin: 10px 10px; opacity: 0.4; }
+.gender-title { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #4b3b26; margin-bottom: 8px; }
+.dress-list { list-style: none; padding: 0; margin: 0; }
+.dress-list li { font-size: 0.8rem; margin-bottom: 4px; color: #555; }
 
-.subtitle-small {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #4b3b26;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-top: 20px;
-  font-size: 0.9rem;
-}
-
-.dress-note {
-  font-size: 0.85rem;
-  font-style: italic;
-  max-width: 90%;
-  margin: 0 auto 15px auto;
-}
-
-.dress-img {
-  display: block;
-  width: auto; 
-  max-width: 100%; 
-  height: auto;
-  max-height: 200px;
-  margin: 0 auto 15px auto;
-  border-radius: 8px;
-}
-
-.colors-img {
-  display: block;
-  width: auto;
-  max-width: 90%;
-  height: auto;
-  margin: 0 auto 10px auto;
-  border-radius: 8px;
-}
-
-/* Fusión de imágenes (Quitar fondo crema) */
-.blend-img {
-  mix-blend-mode: multiply; 
-  filter: contrast(1.1) brightness(1.05); 
-}
-
-.separator {
-  width: 40px;
-  height: 2px;
-  background-color: #8c6b38;
-  margin: 10px auto;
-  opacity: 0.3;
-}
-
-/* ESTRUCTURA DE COLUMNAS (Ellas vs Ellos) */
-.dress-grid {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.dress-col {
-  flex: 1;
-  padding: 0 5px;
-}
-
-.vertical-line {
-  width: 1px;
-  background-color: #8c6b38;
-  height: 80px;
-  margin: 10px 10px;
-  opacity: 0.4;
-}
-
-.gender-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: #4b3b26;
-  margin-bottom: 8px;
-}
-
-/* LISTA SIN PUNTOS (Lo que pediste) */
-.dress-list {
-  list-style: none; /* Adiós viñetas */
-  padding: 0;
-  margin: 0;
-}
-
-.dress-list li {
-  font-size: 0.8rem;
-  margin-bottom: 4px;
-  color: #555;
-}
-
-/* --- FORMULARIO RSVP (Hoja 4) --- */
-.rsvp-form {
-  width: 100%;
-  max-width: 300px; 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.input-group input, 
-.input-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #c9b37e;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
-  color: #4b3b26;
-  outline: none;
-}
-
-.input-group input:focus,
-.input-group textarea:focus {
-  border-color: #5c6b48;
-  background-color: #fff;
-}
-
-.radio-group {
-  display: flex;
-  justify-content: space-around;
-  margin: 5px 0;
-  font-size: 0.9rem;
-  accent-color: #8c6b38;
-}
-
-button[type="submit"] {
-  background-color: #8c6b38;
-  color: white;
-  border: none;
-  padding: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  letter-spacing: 1px;
-  cursor: pointer;
-  border-radius: 25px;
-  margin-top: 10px;
-  transition: background 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #6b512a;
-}
+/* --- FORMULARIO RSVP --- */
+.rsvp-form { width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 12px; }
+.input-group input, .input-group textarea { width: 100%; padding: 10px; border: 1px solid #c9b37e; background-color: rgba(255, 255, 255, 0.7); border-radius: 5px; font-family: 'Montserrat', sans-serif; color: #4b3b26; outline: none; }
+.input-group input:focus, .input-group textarea:focus { border-color: #5c6b48; background-color: #fff; }
+.radio-group { display: flex; justify-content: space-around; margin: 5px 0; font-size: 0.9rem; accent-color: #8c6b38; }
+button[type="submit"] { background-color: #8c6b38; color: white; border: none; padding: 12px; font-family: 'Montserrat', sans-serif; font-weight: bold; letter-spacing: 1px; cursor: pointer; border-radius: 25px; margin-top: 10px; transition: background 0.3s; }
+button[type="submit"]:hover { background-color: #6b512a; }
