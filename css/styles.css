@@ -138,7 +138,7 @@ body {
 .portada-content { width: 100%; text-align: center; }
 
 /* Reduje un poco el tamaño de la fuente para evitar saltos de línea feos */
-.portada-content h1 {
+.portada-content h2 {
   font-family: 'Tangerine', cursive; 
   font-size: 3rem; /* Antes 3.5rem, bajé un poco */
   margin-bottom: 5px; line-height: 1; color: #8c6b38; 
