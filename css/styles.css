@@ -1,5 +1,6 @@
+/* --- CONFIGURACIÓN DE LUZ (SAMSUNG FIX) --- */
 :root {
-  color-scheme: light; /* Le sugerimos amablemente que sea claro */
+  color-scheme: light;
 }
 
 * {
@@ -8,42 +9,37 @@
   box-sizing: border-box;
 }
 
-/* --- ARREGLO 1: FONDO Y SAMSUNG --- */
 body {
   font-family: 'Montserrat', sans-serif;
   color: #4b3b26;
   margin: 0;
   padding: 0;
-  
-  /* IMPORTANTE: Quitamos el 'white' y ponemos transparente. 
-     Si no hay color de fondo, Samsung no tiene nada que volver gris. */
-  background-color: transparent !important; 
-  
   overflow-x: hidden;
+  /* Eliminamos fondos raros aquí para que no confunda al navegador */
 }
 
-/* El contenedor de la imagen fija */
+/* --- FONDO DE BOSQUE --- */
 .fondo-bosque-fijo {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: -999; /* Se va al fondo */
+  z-index: -999;
   
   background: url("../img/fondo-bosque.jpg") center center;
   background-size: cover;
   background-repeat: no-repeat;
   
-  /* Esto ayuda a que el navegador no intente invertir los colores de la imagen */
-  filter: none !important;
-  isolation: isolate; 
+  /* ESTO ES CLAVE PARA SAMSUNG: */
+  /* Una capa blanca casi invisible detrás de la imagen ayuda a que 
+     el navegador sepa que es modo claro */
+  background-color: #fcfcfc; 
   
   transform: translateZ(0);
-  will-change: transform;
 }
 
-/* --- SOBRE (PANTALLA DE INICIO) --- */
+/* --- SOBRE --- */
 #cover {
   height: 100vh;
   width: 100%;
@@ -67,26 +63,15 @@ body {
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
 
-#envelope:hover {
-  transform: scale(1.05);
-}
+#envelope:hover { transform: scale(1.05); }
 
 .tap {
-  margin-top: 20px;
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-  font-weight: 600;
+  margin-top: 20px; font-size: 14px; letter-spacing: 3px; color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-weight: 600;
   animation: latido 2s infinite;
 }
 
-/* --- HISTORIA (CONTENIDO) --- */
-#story {
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+#story { display: none; opacity: 0; transition: opacity 1s ease; }
 
 .page {
   width: 100%;
@@ -96,27 +81,32 @@ body {
   padding: 20px 0;
 }
 
-/* --- EL PERGAMINO GENERAL --- */
+/* --- CORRECCIÓN DE DEFORMACIÓN DEL PERGAMINO --- */
 .paper {
   background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
   
-  /* ARREGLO 2: PROPORCIÓN */
-  /* Antes tenías 100% 100%. Eso obliga al papel a medir exacto lo que dice el CSS.
-     Al cambiar a '100% 100%' está bien PARA EL FONDO, pero debemos dejar que la
-     ALTURA (min-height) sea flexible para que no apriete el contenido. */
+  /* Mantenemos 100% 100% para que el borde se vea completo... */
   background-size: 100% 100%; 
   
-  width: 95%; /* Un poco más ancho en móviles para tener espacio */
-  max-width: 450px;
+  /* ...PERO controlamos la forma de la caja: */
   
-  /* Quitamos altura fija, usamos mínima */
+  /* 1. Ancho controlado: Nunca más ancho de 420px */
+  width: 90%; 
+  max-width: 420px; 
+  
+  /* 2. ARREGLO MÁGICO: Aspect Ratio */
+  /* Esto obliga a la caja a mantener forma de hoja vertical.
+     Si el contenido crece, la hoja crece proporcionalmente a lo ancho y alto.
+     Evita que se vea "gorda" al girar el celular. */
+  aspect-ratio: 2 / 3; 
+  
+  /* Si el texto es MUY largo, permitimos que crezca hacia abajo */
   min-height: 550px; 
-  height: auto; /* IMPORTANTE: Deja que crezca si el contenido es largo */
+  height: auto;
   
-  /* Reducimos padding lateral para dar más espacio a las fotos */
-  padding: 80px 40px; 
+  padding: 80px 45px; 
   
   text-align: center;
   display: flex;
@@ -127,66 +117,36 @@ body {
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
   position: relative; 
   animation: fadeUp 1s ease;
-  
-  /* Protección extra contra modo oscuro */
-  background-color: transparent !important;
 }
 
-/* --- ESTILOS DE LA PORTADA (HOJA 1) --- */
+/* --- PORTADA (FOTO) --- */
 .portada-foto {
   background-image: url("../img/portada-novios.webp"); 
-  background-size: 100% 100%;
-  background-position: center;
+  /* 'cover' recorta la foto para llenar el espacio SIN DEFORMARLA */
+  background-size: cover; 
+  background-position: center top; /* Enfoca las caras (usualmente arriba) */
   background-repeat: no-repeat;
   justify-content: flex-end; 
   padding-bottom: 60px; 
 }
 
-.portada-content {
-  width: 100%;
-  text-align: center;
-}
-
+.portada-content { width: 100%; text-align: center; }
 .portada-content h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3.5rem;
-  margin-bottom: 5px;
-  line-height: 1;
-  color: #8c6b38; 
+  font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-bottom: 5px; line-height: 1; color: #8c6b38; 
   text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
-
 .portada-content .intro-phrase {
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #4b3b26; 
-  text-shadow: 0 0 5px rgba(255,255,255,0.8);
-  margin-bottom: 20px;
+  font-size: 1.1rem; font-weight: 600; line-height: 1.4; color: #4b3b26; 
+  text-shadow: 0 0 5px rgba(255,255,255,0.8); margin-bottom: 20px;
 }
 
-.scroll-indicator {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15px;
-  width: 100%;
-}
-
+.scroll-indicator { display: flex; flex-direction: column; align-items: center; margin-top: 15px; width: 100%; }
 .scroll-indicator p {
-  color: #8c6b38;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-  background-color: rgba(255,255,255,0.85);
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 20px;
-  margin-bottom: 10px;
+  color: #8c6b38; text-transform: uppercase; font-weight: bold; letter-spacing: 2px;
+  background-color: rgba(255,255,255,0.85); display: inline-block; padding: 8px 20px; border-radius: 20px; margin-bottom: 10px;
 }
 
-/* --- ARREGLO 3: FOTOS PROPORCIONALES (NO ESTIRADAS) --- */
+/* --- FOTOS ENMARCADAS (CORRECCIÓN DEFORMACIÓN) --- */
 .photo-frame {
   background-color: #fff;
   padding: 10px;
@@ -194,36 +154,28 @@ body {
   transform: rotate(-2deg);
   margin-bottom: 15px;
   
-  /* IMPORTANTE: Ancho automático para respetar la foto */
-  width: auto; 
-  max-width: 90%; /* Que no se salga del papel */
-  display: inline-block; /* Se ajusta al tamaño de la imagen */
+  /* La caja se ajusta al contenido */
+  width: fit-content; 
+  max-width: 90%; 
+  margin-left: auto; margin-right: auto;
 }
 
-/* Intercalamos el giro */
-.page:nth-child(even) .photo-frame {
-  transform: rotate(2deg);
-}
+.page:nth-child(even) .photo-frame { transform: rotate(2deg); }
 
 .photo-frame img {
-  /* Esto es la clave para que NO SE DEFORMEN */
   display: block;
-  max-width: 100%; /* Que no sea más ancha que el marco */
-  height: auto;    /* La altura se calcula sola (proporcional) */
-  width: auto;     /* El ancho respeta la imagen original */
+  /* Altura y ancho automáticos mantienen la proporción original */
+  width: auto; 
+  height: auto;
   
-  /* Límite de altura para que no sea gigante */
+  /* Límites para que no se salga */
+  max-width: 100%; 
   max-height: 350px; 
 }
 
-.photo-caption {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: #8c6b38;
-  margin-top: 10px;
-}
+.photo-caption { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #8c6b38; margin-top: 10px; }
 
-/* --- SLIDESHOW (HOJA 7) --- */
+/* --- SLIDESHOW CORREGIDO --- */
 .slideshow-container {
   width: 90%;
   max-width: 280px;
@@ -237,99 +189,47 @@ body {
 }
 
 .slide {
-  position: absolute;
-  top: 10px; left: 10px;
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  /* 'cover' recorta la foto para llenar el cuadro sin deformarla */
-  object-fit: cover; 
-  opacity: 0;
-  animation: crossfade 16s infinite;
+  position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: calc(100% - 20px);
+  object-fit: cover; /* Recorta, NO deforma */
+  opacity: 0; animation: crossfade 16s infinite;
 }
 
+/* ... ANIMACIONES DEL SLIDE (Igual que antes) ... */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
 .slide:nth-child(4) { animation-delay: 12s; }
+@keyframes crossfade { 0% { opacity: 0; } 10% { opacity: 1; } 25% { opacity: 1; } 35% { opacity: 0; } 100% { opacity: 0; } }
 
-@keyframes crossfade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  25% { opacity: 1; }
-  35% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* --- TIPOGRAFÍA --- */
+/* --- TIPOGRAFÍA Y OTROS --- */
 h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
 h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #8c6b38; margin-bottom: 15px; }
 p { font-size: 1rem; line-height: 1.8; margin-bottom: 15px; }
-
-/* --- ANIMACIONES --- */
-@keyframes latido {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes latido { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 .hidden { opacity: 0 !important; pointer-events: none; }
+.intro-phrase { font-family: 'Dancing Script', cursive; color: #fff; font-size: 2rem; text-align: center; margin-bottom: 30px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: fadeUp 2s ease; }
 
-/* --- INTRO --- */
-.intro-phrase {
-  font-family: 'Dancing Script', cursive;
-  color: #fff;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-  animation: fadeUp 2s ease;
-}
-
-/* --- CALENDARIO --- */
+/* CALENDARIO, CUENTA REGRESIVA Y MAPA (Igual que antes) */
 .calendar-wrapper { margin: 10px auto; width: 80%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
 .month { font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; color: #5c4826; text-transform: uppercase; }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.8rem; color: #5c4826; }
 .heart-date { background-color: #8c6b38; color: #fff; border-radius: 50%; font-weight: bold; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; margin: 0 auto; }
-
-/* --- CUENTA REGRESIVA --- */
 #countdown { display: flex; justify-content: space-around; margin: 15px 0; width: 100%; }
 .time-box { display: flex; flex-direction: column; background: rgba(140, 107, 56, 0.1); padding: 5px; border-radius: 5px; width: 50px; }
 .time-box span { font-weight: bold; font-size: 1.2rem; color: #8c6b38; }
 .time-box small { font-size: 0.7rem; }
-
-/* --- UBICACIÓN --- */
 .btn-location { display: inline-block; margin-top: 10px; padding: 10px 25px; background-color: #8c6b38; color: white; text-decoration: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
 .btn-location:hover { background-color: #6b512a; }
 
-/* --- DRESSCODE --- */
+/* DRESSCODE */
 .subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #6b7a64; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
 .subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
 .dress-note { font-size: 0.85rem; font-style: italic; max-width: 90%; margin: 0 auto 15px auto; }
-
-/* IMÁGENES DRESSCODE - Corregidas */
-.dress-img { 
-  display: block; 
-  width: auto; 
-  max-width: 100%; 
-  height: auto; /* Proporcional */
-  max-height: 200px; 
-  margin: 0 auto 15px auto; 
-  border-radius: 8px; 
-}
-.colors-img { 
-  display: block; 
-  width: auto; 
-  max-width: 90%; 
-  height: auto; /* Proporcional */
-  margin: 0 auto 10px auto; 
-  border-radius: 8px; 
-}
+.dress-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 200px; margin: 0 auto 15px auto; border-radius: 8px; }
+.colors-img { display: block; width: auto; max-width: 90%; height: auto; margin: 0 auto 10px auto; border-radius: 8px; }
 .blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
 .separator { width: 40px; height: 2px; background-color: #8c6b38; margin: 10px auto; opacity: 0.3; }
-
 .dress-grid { display: flex; justify-content: center; align-items: flex-start; width: 100%; margin-top: 10px; }
 .dress-col { flex: 1; padding: 0 5px; }
 .vertical-line { width: 1px; background-color: #8c6b38; height: 80px; margin: 10px 10px; opacity: 0.4; }
@@ -337,7 +237,7 @@ p { font-size: 1rem; line-height: 1.8; margin-bottom: 15px; }
 .dress-list { list-style: none; padding: 0; margin: 0; }
 .dress-list li { font-size: 0.8rem; margin-bottom: 4px; color: #555; }
 
-/* --- FORMULARIO RSVP --- */
+/* RSVP */
 .rsvp-form { width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 12px; }
 .input-group input, .input-group textarea { width: 100%; padding: 10px; border: 1px solid #c9b37e; background-color: rgba(255, 255, 255, 0.7); border-radius: 5px; font-family: 'Montserrat', sans-serif; color: #4b3b26; outline: none; }
 .input-group input:focus, .input-group textarea:focus { border-color: #5c6b48; background-color: #fff; }
