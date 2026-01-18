@@ -126,7 +126,7 @@ body {
 
 /* Reduje un poco el tamaño de la fuente para evitar saltos de línea feos */
 .portada-content h1 {
-  font-family: 'Dancing Script', cursive; 
+  font-family: 'Tangerine', cursive; 
   font-size: 3rem; /* Antes 3.5rem, bajé un poco */
   margin-bottom: 5px; line-height: 1; color: #8c6b38; 
   text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
