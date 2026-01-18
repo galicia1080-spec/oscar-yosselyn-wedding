@@ -112,10 +112,17 @@ body {
 }
 
 /* --- PORTADA (FOTO) --- */
+/* --- PORTADA (FOTO) --- */
 .portada-foto {
   background-image: url("../img/portada-novios.webp"); 
-  background-size: cover; 
-  background-position: center top; 
+  
+  /* --- CORRECCIÓN AQUÍ --- */
+  /* Antes tenías 'cover', por eso se cortaban los lados. */
+  /* Cambiamos a '100% 100%' para que la imagen se obligue a entrar 
+     completa en el cuadro, sin salirse ni un píxel. */
+  background-size: 100% 100%; 
+  
+  background-position: center; 
   background-repeat: no-repeat;
   justify-content: flex-end; 
   padding-bottom: 50px; 
