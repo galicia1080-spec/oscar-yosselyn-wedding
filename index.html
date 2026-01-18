@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="color-scheme" content="light only">
   <title>Boda Oscar & Yosselyn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- FORZAR MODO CLARO (Corrección Samsung) -->
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   
@@ -26,7 +29,7 @@
   <!-- HISTORIA -->
   <div id="story">
 
-<!-- HOJA 1: PORTADA FOTO -->
+    <!-- HOJA 1: PORTADA FOTO -->
     <section class="page">
       <div class="paper portada-foto">
         <div class="portada-content">
@@ -34,144 +37,124 @@
           <p class="intro-phrase">
             "El amor es plantar un bosque <br>donde antes solo había tierra."
           </p>
+          
           <div class="scroll-indicator">
-            <p style="margin-bottom: 15px;">¡Nos Casamos!</p>
-            <!-- El margin-bottom de arriba arregla el espacio -->
+            <p>¡Nos Casamos!</p>
             <small>Desliza hacia abajo ↓</small>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOJA 2: DATOS Y CALENDARIO (Igual que antes) -->
+    <!-- HOJA 2: GALERÍA AUTOMÁTICA (SLIDESHOW) -->
+    <section class="page">
+      <div class="paper">
+        <h2>Nuestros Momentos</h2>
+        
+        <!-- Contenedor de fotos que cambian solas -->
+        <div class="slideshow-container">
+            <!-- Sube tus fotos como foto1.jpg, foto2.jpg, foto3.jpg, foto4.jpg -->
+            <img src="img/foto1.jpg" class="slide" alt="Foto 1">
+            <img src="img/foto2.jpg" class="slide" alt="Foto 2">
+            <img src="img/foto3.jpg" class="slide" alt="Foto 3">
+            <img src="img/foto4.jpg" class="slide" alt="Foto 4">
+        </div>
+
+        <p class="photo-caption" style="margin-top:10px;">"Una historia escrita con el corazón"</p>
+      </div>
+    </section>
+
+    <!-- HOJA 3: INFO Y CALENDARIO -->
     <section class="page">
       <div class="paper">
         <h2>Nuestra Boda</h2>
-        <!-- ... (Tu código del calendario Febrero 2026 va aquí) ... -->
-        <!-- Si necesitas que te lo pegue de nuevo avísame, pero es el mismo -->
-        <div class="calendar-wrapper">
-            <div class="month">FEBRERO 2026</div>
-            <div class="calendar-grid">
-              <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-              <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
-              <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-              <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
-              <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
-              <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="heart-date">28</span>
-            </div>
-        </div>
         
+        <!-- CALENDARIO FEBRERO 2026 -->
+        <div class="calendar-wrapper">
+          <div class="month">FEBRERO 2026</div>
+          <div class="calendar-grid">
+            <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            <!-- Febrero 2026 empieza en Domingo -->
+            <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+            <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+            <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+            <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="heart-date">28</span>
+          </div>
+        </div>
+
+        <!-- CUENTA REGRESIVA -->
         <div id="countdown">
-            <div class="time-box"><span id="days">00</span><small>Días</small></div>
-            <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
-            <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
-            <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
+          <div class="time-box"><span id="days">00</span><small>Días</small></div>
+          <div class="time-box"><span id="hours">00</span><small>Hs</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
         </div>
 
         <div class="details-block">
-            <p><strong>Ceremonia & Recepción</strong><br>MONTEMILIA<br>Volcan de San Salvador<br>3:00 PM</p>
-            <a href="https://maps.app.goo.gl/om74T56VXAgdM1Vz5" target="_blank" class="btn-location">Ver Ubicación en Mapa</a>
+          <p><strong>Ceremonia & Recepción</strong><br>MONTEMILIA<br>Volcán de San Salvador<br>3:00 PM</p>
+          <a href="https://maps.app.goo.gl/om74T56VXAgdM1Vz5" target="_blank" class="btn-location">
+            Ver Ubicación en Mapa
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- --- NUEVAS HOJAS: GALERÍA DE FOTOS (4 Hojas) --- -->
-    <!-- Recuerda subir las fotos: foto1.jpg, foto2.jpg, foto3.jpg, foto4.jpg -->
-    
-    <!-- FOTO 1 -->
+    <!-- HOJA 4: DRESSCODE -->
     <section class="page">
       <div class="paper">
-        <!-- Clase photo-frame para darle estilo polaroid -->
-        <div class="photo-frame">
-          <img src="img/foto1.jpg" alt="Nosotros">
-        </div>
-        <p class="photo-caption">"Cada paso juntos..."</p>
-      </div>
-    </section>
-
-    <!-- FOTO 2 -->
-    <section class="page">
-      <div class="paper">
-        <div class="photo-frame">
-          <img src="img/foto2.jpg" alt="Nosotros">
-        </div>
-        <p class="photo-caption">"...nos ha traído hasta aquí."</p>
-      </div>
-    </section>
-
-    <!-- FOTO 3 -->
-    <section class="page">
-      <div class="paper">
-        <div class="photo-frame">
-          <img src="img/foto3.jpg" alt="Nosotros">
-        </div>
-      </div>
-    </section>
-
-    <!-- FOTO 4 + BOTÓN GALERÍA -->
-    <section class="page">
-      <div class="paper">
-        <div class="photo-frame">
-          <img src="img/foto4.jpg" alt="Nosotros">
-        </div>
-        <p class="photo-caption">¡Hay más por ver!</p>
         
-        <!-- Botón a Google Photos o Drive -->
-        <a href="TU_LINK_DE_GOOGLE_PHOTOS_AQUI" target="_blank" class="btn-location" style="margin-top:10px;">
-          Ver Galería Completa
-        </a>
-      </div>
-    </section>
-
-
-    <!-- HOJA DRESSCODE (Texto corregido) -->
-    <section class="page">
-      <div class="paper">
-        <svg class="hanger-icon" viewBox="0 0 24 24" width="40" height="40">
+        <!-- Icono Percha -->
+        <svg class="hanger-icon" viewBox="0 0 24 24" width="40" height="40" style="margin-bottom:10px;">
           <path fill="none" stroke="#5c6b48" stroke-width="2" d="M12,6 c0-4-4-4-4,0 m0,0 l8,8 l8-8 m-8,0 v-3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
         <h2>Dresscode</h2>
         <h3 class="subtitle">FORMAL JARDÍN</h3>
         
-        <!-- Imágenes de dresscode (Las que ya tienes) -->
         <img src="img/dresscode-personas.jpg" class="dress-img blend-img" alt="Ejemplo vestimenta">
 
         <div class="separator"></div>
 
         <h3 class="subtitle-small">COLORES RESERVADOS</h3>
-        <!-- TEXTO CORREGIDO -->
         <p class="dress-note">
-          Queremos que te sientas cómodo/a, pero agradeceríamos mucho que nos ayudes a reservar estos colores exclusivamente para los novios y la decoración.
+          Queremos que te sientas cómodo/a, pero agradeceríamos mucho que nos ayudes a reservar estos colores exclusivamente para los novios.
         </p>
         
-        <img src="img/colores-prohibidos.jpg" class="colors-img blend-img" alt="Colores no">
+        <img src="img/colores-prohibidos.jpg" class="colors-img blend-img" alt="Colores reservados">
 
         <div class="separator"></div>
-        
-        <!-- Lista Ellas/Ellos (Tu código anterior aquí) -->
-         <div class="dress-grid">
+
+        <div class="dress-grid">
           <div class="dress-col">
             <h4 class="gender-title">Ellas</h4>
-            <ul class="dress-list"><li>Vestido Largo / Midi</li><li>Telas fluidas</li><li>Tacón ancho</li></ul>
+            <ul class="dress-list">
+              <li>Vestido Largo / Midi</li>
+              <li>Telas fluidas</li>
+              <li>Tacón ancho</li>
+            </ul>
           </div>
           <div class="vertical-line"></div>
           <div class="dress-col">
             <h4 class="gender-title">Ellos</h4>
-            <ul class="dress-list"><li>Traje completo</li><li>Guayabera</li><li>No Jeans</li></ul>
+            <ul class="dress-list">
+              <li>Traje completo</li>
+              <li>Guayabera</li>
+              <li>No Jeans</li>
+            </ul>
           </div>
         </div>
+
       </div>
     </section>
 
-
-    <!-- --- NUEVA HOJA: REGALOS Y NOTAS (La hoja extra) --- -->
+    <!-- HOJA 5: DETALLES (REGALOS Y NIÑOS) -->
     <section class="page">
       <div class="paper">
         
         <!-- SECCIÓN REGALOS -->
         <h2>Regalos</h2>
-        <!-- Icono de sobrecito dibujado -->
         <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="#8c6b38" stroke-width="1.5" style="margin:10px auto;">
            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
            <path d="M22 6l-10 7L2 6"/>
@@ -193,32 +176,40 @@
       </div>
     </section>
 
-
-    <!-- HOJA FINAL: CONFIRMACIÓN (Tu código anterior) -->
+    <!-- HOJA 6: CONFIRMACIÓN -->
     <section class="page">
       <div class="paper">
         <h2>Confirmación</h2>
         <p>Por favor confirma tu asistencia<br>antes del 1 de Febrero.</p>
-        
-        <!-- ... TU FORMULARIO RSVP VA AQUÍ ... -->
+
+        <!-- El Formulario -->
         <form id="rsvp-form" class="rsvp-form">
-          <div class="input-group"><input type="text" name="Nombre" placeholder="Nombre Completo" required></div>
+          <div class="input-group">
+            <input type="text" name="Nombre" placeholder="Nombre Completo" required>
+          </div>
           <div class="radio-group">
             <label><input type="radio" name="Asistencia" value="Si" checked> ¡Sí voy!</label>
             <label><input type="radio" name="Asistencia" value="No"> No podré ir</label>
           </div>
-          <div class="input-group"><input type="number" name="Personas" placeholder="Número de personas" min="1" max="5" required></div>
-          <div class="input-group"><textarea name="Mensaje" placeholder="¿Alguna alergia o mensaje?"></textarea></div>
+          <div class="input-group">
+            <input type="number" name="Personas" placeholder="Número de personas" min="1" max="5" required>
+          </div>
+          <div class="input-group">
+            <textarea name="Mensaje" placeholder="¿Alguna alergia o mensaje?"></textarea>
+          </div>
           <button type="submit" id="btn-submit">ENVIAR CONFIRMACIÓN</button>
         </form>
+
+        <!-- Mensaje de éxito -->
         <div id="rsvp-message" style="display:none; margin-top:20px;">
-          <h3 style="color:#5c6b48;">¡Gracias!</h3><p>Hemos recibido tu respuesta.</p>
+          <h3 style="color:#5c6b48;">¡Gracias!</h3>
+          <p>Hemos recibido tu respuesta.</p>
         </div>
 
       </div>
     </section>
-    
-  </div> <!-- <--- ¡ESTE ES EL QUE FALTABA! (Cierre de #story) -->
+
+  </div> <!-- FIN DEL STORY -->
 
   <!-- AUDIO -->
   <audio id="music" src="audio/music.mp3" preload="auto" loop></audio>
