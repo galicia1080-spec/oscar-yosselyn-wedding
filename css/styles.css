@@ -14,22 +14,13 @@ body {
   color: #4b3b26;
   margin: 0;
   padding: 0;
-  background-color: transparent !important; /* Clave para el fondo */
+  background-color: transparent !important; /* Clave para Samsung */
   overflow-x: hidden; 
 }
 
-.tangerine-regular {
-  font-family: "Tangerine", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.tangerine-bold {
-  font-family: "Tangerine", cursive;
-  font-weight: 700;
-  font-style: normal;
-}
-
+/* Clases de utilidad para fuentes */
+.tangerine-regular { font-family: "Tangerine", cursive; font-weight: 400; }
+.tangerine-bold { font-family: "Tangerine", cursive; font-weight: 700; }
 
 /* --- FONDO DE BOSQUE --- */
 .fondo-bosque-fijo {
@@ -44,7 +35,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   
-  /* Esto ayuda a que Samsung no lo invierta */
+  /* Capa base para evitar inversión de color */
   background-color: #f0f0f0; 
   isolation: isolate;
   transform: translateZ(0);
@@ -84,30 +75,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px 0; /* Menos espacio arriba/abajo entre hojas */
+  padding: 15px 0;
 }
 
-/* --- EL PERGAMINO (CORREGIDO TEXTO) --- */
+/* --- EL PERGAMINO (CORREGIDO) --- */
 .paper {
   background-image: url("../img/pergamino.webp");
   background-repeat: no-repeat;
   background-position: center;
-  /* Estiramos el fondo para llenar la caja */
   background-size: 100% 100%; 
   
-  /* AQUÍ ESTÁ EL ARREGLO DE TAMAÑO: */
-  /* Usamos un ancho casi fijo. 380px es el ancho estándar de un celular.
-     Si el celular es más pequeño (ej. iPhone SE), se ajusta al 95%. */
+  /* TAMAÑO Y FORMA */
   width: 95%;
   max-width: 400px; 
   
-  /* Altura mínima para que quepa todo */
+  /* ESTA LÍNEA ES LA QUE FALTABA PARA EVITAR DEFORMACIÓN: */
+  aspect-ratio: 2 / 3; 
+  
   min-height: 600px;
   height: auto; 
   
-  /* --- CLAVE PARA QUE QUEPA EL TEXTO --- */
-  /* Reducimos el padding lateral a 30px (antes 50px).
-     Esto da más espacio a las letras para que no se bajen de renglón. */
   padding: 80px 30px; 
   
   text-align: center;
@@ -120,7 +107,6 @@ body {
   position: relative; 
   animation: fadeUp 1s ease;
   
-  /* Evita que Samsung oscurezca el papel */
   background-color: transparent !important;
   isolation: isolate;
 }
@@ -137,13 +123,17 @@ body {
 
 .portada-content { width: 100%; text-align: center; }
 
-/* Reduje un poco el tamaño de la fuente para evitar saltos de línea feos */
-.portada-content h2 {
+/* CORREGIDO: APLICAMOS TANGERINE AL H1 */
+.portada-content h1 {
   font-family: 'Tangerine', cursive; 
-  font-size: 3rem; /* Antes 3.5rem, bajé un poco */
-  margin-bottom: 5px; line-height: 1; color: #8c6b38; 
+  font-weight: 700; /* Bold */
+  font-size: 4.5rem; /* Tangerine es una fuente pequeña, hay que hacerla más grande */
+  margin-bottom: 5px; 
+  line-height: 0.8; 
+  color: #8c6b38; 
   text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
+
 .portada-content .intro-phrase {
   font-size: 1rem; font-weight: 600; line-height: 1.4; color: #4b3b26; 
   text-shadow: 0 0 5px rgba(255,255,255,0.8); margin-bottom: 20px;
@@ -158,12 +148,10 @@ body {
 /* --- FOTOS ENMARCADAS --- */
 .photo-frame {
   background-color: #fff;
-  padding: 8px; /* Menos borde blanco */
+  padding: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transform: rotate(-2deg);
   margin-bottom: 15px;
-  
-  /* Ajuste automático */
   width: auto;
   max-width: 100%; 
   display: inline-block;
@@ -174,14 +162,21 @@ body {
   display: block;
   width: auto; height: auto;
   max-width: 100%; 
-  /* Altura máxima controlada para que no se estiren */
   max-height: 320px; 
 }
-.photo-caption { font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #8c6b38; margin-top: 10px; }
+
+/* Ajuste para el texto largo de la foto */
+.photo-caption { 
+  font-family: 'Dancing Script', cursive; 
+  font-size: 1.2rem; /* Un poco más pequeño para que quepa el texto largo */
+  color: #8c6b38; 
+  margin-top: 10px; 
+  line-height: 1.4;
+}
 
 /* --- SLIDESHOW --- */
 .slideshow-container {
-  width: 90%; max-width: 260px; height: 320px; /* Un poco más chico */
+  width: 90%; max-width: 260px; height: 320px;
   position: relative; margin: 20px auto;
   background-color: #fff; padding: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-2deg);
@@ -196,7 +191,7 @@ body {
 .slide:nth-child(4) { animation-delay: 12s; }
 @keyframes crossfade { 0% { opacity: 0; } 10% { opacity: 1; } 25% { opacity: 1; } 35% { opacity: 0; } 100% { opacity: 0; } }
 
-/* --- TIPOGRAFÍA GENERAL --- */
+/* --- TIPOGRAFÍA GENERAL (Respaldo) --- */
 h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: #8c6b38; margin-bottom: 10px; line-height: 1.2; }
 h2 { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #8c6b38; margin-bottom: 15px; }
 p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
@@ -207,7 +202,7 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 .hidden { opacity: 0 !important; pointer-events: none; }
 .intro-phrase { font-family: 'Dancing Script', cursive; color: #fff; font-size: 2rem; text-align: center; margin-bottom: 30px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: fadeUp 2s ease; }
 
-/* --- ELEMENTOS EXTRA --- */
+/* --- OTROS COMPONENTES --- */
 .calendar-wrapper { margin: 10px auto; width: 90%; border-top: 1px solid #8c6b38; border-bottom: 1px solid #8c6b38; padding: 10px 0; }
 .month { font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; color: #5c4826; text-transform: uppercase; }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; font-size: 0.8rem; color: #5c4826; }
