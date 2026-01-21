@@ -227,7 +227,7 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 
 /* DRESSCODE EXTRA */
 .subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #8c6b38; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
-.subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
+.subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #8c6b38; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
 .dress-note { font-size: 0.85rem; font-style: italic; max-width: 100%; margin: 0 auto 15px auto; }
 .blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
 .separator { width: 40px; height: 2px; background-color: #8c6b38; margin: 10px auto; opacity: 0.3; }
