@@ -226,7 +226,7 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 .btn-location:hover { background-color: #6b512a; }
 
 /* DRESSCODE EXTRA */
-.subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #6b7a64; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
+.subtitle { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #8c6b38; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.2rem; }
 .subtitle-small { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: #4b3b26; font-weight: 600; letter-spacing: 1px; margin-top: 20px; font-size: 0.9rem; }
 .dress-note { font-size: 0.85rem; font-style: italic; max-width: 100%; margin: 0 auto 15px auto; }
 .blend-img { mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.05); }
@@ -234,9 +234,9 @@ p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
 .dress-grid { display: flex; justify-content: center; align-items: flex-start; width: 100%; margin-top: 10px; }
 .dress-col { flex: 1; padding: 0 5px; }
 .vertical-line { width: 1px; background-color: #8c6b38; height: 80px; margin: 10px 10px; opacity: 0.4; }
-.gender-title { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #4b3b26; margin-bottom: 8px; }
+.gender-title { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #8c6b38; margin-bottom: 8px; }
 .dress-list { list-style: none; padding: 0; margin: 0; }
-.dress-list li { font-size: 0.8rem; margin-bottom: 4px; color: #555; }
+.dress-list li { font-size: 0.8rem; margin-bottom: 4px; color: #8c6b38; }
 
 /* RSVP */
 .rsvp-form { width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 12px; }
